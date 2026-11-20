@@ -63,13 +63,13 @@
 \contentsline {subsection}{\numberline {4.2.7}Instrumentação}{55}{subsection.4.2.7}%
 \contentsline {subsection}{\numberline {4.2.8}Procedimento de aplicação dos instrumentos}{56}{subsection.4.2.8}%
 \contentsline {subsection}{\numberline {4.2.9}Validade do experimento}{58}{subsection.4.2.9}%
-\contentsline {subsection}{\numberline {4.2.10}Análise complementar}{61}{subsection.4.2.10}%
+\contentsline {subsection}{\numberline {4.2.10}Análise complementar}{60}{subsection.4.2.10}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{62}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Atividades concluídas}{62}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Resultados obtidos}{62}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Próximos passos}{62}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Cronograma da segunda etapa}{62}{section.5.4}%
+\contentsline {section}{\numberline {5.3}Próximos passos}{63}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Cronograma da segunda etapa}{63}{section.5.4}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{63}{section*.25}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{65}{section*.25}%

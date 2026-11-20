@@ -1,23 +1,48 @@
 \chapter[Conclusão]{Conclusão}
 \label{cap:conclusao}
 
-% {aqui vai um parágrafo retomando objetivo e questão de pesquisa, porque fecha o TCC1}
+O ponto de partida deste trabalho foi uma pergunta prática: até que ponto um LLM consegue escrever, a partir de uma história de usuário, os cenários em \textit{Gherkin} que uma equipe escreveria à mão, e se dar ao modelo o contexto do próprio projeto, por meio de RAG, melhora esse resultado. A primeira etapa não responde a essa pergunta, mas prepara o caminho para respondê-la. Primeiro, foi preciso entender o que a literatura já sabe sobre o tema. Depois, com base no que ela ainda não mostra, foi desenhado um estudo capaz de medir essa diferença.
 
 \section{Atividades concluídas}
-% {atividades do TCC1 realizadas, relacionadas aos objetivos específicos, porque mostra que o plano foi cumprido}
+
+A Tabela~\ref{tab:atividades-concluidas} retoma as atividades previstas no cronograma da primeira etapa (Seção~\ref{sec:cronograma}) e mostra a situação de cada uma. Com elas, os dois primeiros objetivos específicos foram cumpridos: a revisão estruturada caracterizou a literatura (Capítulo~\ref{cap:revisao}), e o estudo experimental foi planejado (Capítulo~\ref{cap:planejamento}). O terceiro objetivo já começou a ser atendido, com a escolha dos projetos MeasureSoftGram e CAPJu, de onde virão as histórias de usuário e os critérios de aceitação do gabarito.
+
+\begin{table}[H]
+  \centering
+  \caption{Situação das atividades da primeira etapa}
+  \label{tab:atividades-concluidas}
+  \small
+  \begin{tabular}{|p{0.62\textwidth}|p{0.28\textwidth}|}
+    \hline
+    \textbf{Atividade} & \textbf{Situação} \\ \hline
+    Contextualização sobre Engenharia de \textit{Software} Experimental & Concluída \\ \hline
+    Definição do GQM & Concluída \\ \hline
+    Elaboração do protocolo de revisão da literatura & Concluída \\ \hline
+    Seleção dos artigos & Concluída \\ \hline
+    Leitura do material selecionado & Concluída \\ \hline
+    Definição da proposta de solução & Concluída \\ \hline
+    Escrita da monografia & Concluída \\ \hline
+    Revisão da monografia & Em andamento \\ \hline
+    Apresentação da monografia & Agendada para 14/12/2026 \\ \hline
+  \end{tabular}
+  \fonte{Autores}
+\end{table}
 
 \section{Resultados obtidos}
-% {principais achados da revisão e o planejamento concluído}
+
+A revisão mostrou um campo novo e ainda pouco consolidado. Nenhum dos 25 estudos incluídos é anterior a 2024, e 80\% foram publicados a partir de 2025. A maioria nasceu no meio acadêmico, e só 20\% usam dados e profissionais da indústria. Na prática, gerar CA com LLMs ainda significa, na maior parte dos casos, escrever um bom \textit{prompt} para um modelo da família GPT, presente em 79\% dos estudos. Recuperar contexto do projeto ou mostrar telas ao modelo são recursos que aparecem em poucos trabalhos.
+
+O que mais chamou atenção, porém, foi a forma de avaliar. A maior parte dos estudos depende do julgamento de pessoas, poucos comparam os critérios gerados com um gabarito, e apenas 2 dos 25 seguem de fato uma estratégia empírica no sentido de \citeonline{wohlin2000}. Os próprios autores reconhecem a dificuldade de generalizar os resultados, que é a limitação mais citada. Também são raros os estudos que medem o efeito de dar contexto ao modelo: em \citeonline{wang2025}, a comparação com e sem RAG existe, mas aparece como um detalhe da avaliação de uma arquitetura maior.
+
+Foi justamente essa lacuna que deu forma ao planejamento. Em vez de propor uma nova arquitetura, este trabalho isola uma única pergunta: o RAG faz diferença? Cada história de usuário passará pelos dois tratamentos, com e sem RAG, e a acurácia será medida pelo Acc@Hit e pelo Acc@Cor, a partir dos objetivos de teste atômicos do gabarito e do julgamento de três LLMs, como em \citeonline{wang2025}. A diferença entre os tratamentos será verificada por um teste pareado, ao nível de significância de 5\%.
 
 \section{Próximos passos}
-% {o que será feito no TCC2, porque liga as duas etapas}
+
+Antes de executar o estudo, ainda há decisões a fechar no planejamento, como o modelo que vai gerar os cenários. Resolvidas essas questões, a segunda etapa segue o roteiro do Capítulo~\ref{cap:planejamento}: montar a base de conhecimento e o gabarito, executar os dois tratamentos, submeter os cenários ao comitê de juízes, analisar os resultados e, por fim, responder à questão que motivou o trabalho.
 
 \section{Cronograma da segunda etapa}
-% {tabela de atividades e meses do TCC2}
-A segunda etapa da monografia consiste na execução integral do experimento planejado, no tratamento e análise dos dados obtidos e na redação da versão final do trabalho. O cronograma previsto é apresentado na Figura~\ref{fig:cronograma-etapa2}. 
 
-Entre as principais atividades estão:
-
+O trabalho da segunda etapa se divide em três momentos: executar o estudo planejado, analisar os dados coletados e escrever a versão final da monografia. A Figura~\ref{fig:cronograma-etapa2} mostra como essas atividades se distribuem ao longo do semestre.
 
 \begin{figure}[H]
   \centering
