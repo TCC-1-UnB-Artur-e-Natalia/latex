@@ -1,50 +1,190 @@
 \chapter[Referencial teórico]{Referencial teórico}
 \label{cap:referencial}
 
-% {aqui vai um parágrafo de abertura explicando quais conceitos o capítulo apresenta e por quê, porque conecta o capítulo à questão de pesquisa}
-%
-% Notas do doc: Engenharia de Software Experimental; necessário (histórias de usuário e CA, LLMs);
-% Métodos ágeis; Modelo de qualidade (ISO); Estatística.
+Este capítulo apresenta o referencial teórico que fundamenta o trabalho: a engenharia de \textit{software} experimental, que sustenta a revisão e o estudo empírico; os métodos ágeis; as histórias de usuário e os critérios de aceitação; o \textit{Behavior-Driven Development} e o \textit{Gherkin}; os modelos de linguagem de grande porte, com as estratégias de \textit{prompt}, a geração aumentada por recuperação e a entrada multimodal; e as formas de avaliar os critérios gerados.
+
+% Estrutura: método (2.1, modelo TCC Oscar/Artur Jackson) -> domínio (2.2-2.4, modelo TCC Gustavo/Leandro) -> tecnologia (2.5) -> medição (2.6).
+% Tamanho em 20/11/2026: ~4.200 palavras (Gustavo/Leandro ~3.300; Oscar/Artur Jackson ~3.000).
 
 \section{Engenharia de Software Experimental}
 \label{sec:es-experimental}
-% {aqui vão o conceito de experimentação em ES e os tipos de estudo empírico (experimento, estudo de caso, survey, revisão), sustenta a revisão e o estudo empírico; base: Wohlin et al.}
+
+O desenvolvimento de \textit{software} depende de pessoas, processos e ferramentas, e o efeito de uma técnica nova raramente pode ser deduzido apenas da teoria. Por isso, a engenharia de \textit{software} recorre a estudos empíricos para avaliar técnicas, métodos e ferramentas antes de adotá-los. Esses estudos podem seguir uma abordagem qualitativa, que busca interpretar um fenômeno a partir da visão de quem participa dele, ou quantitativa, que busca quantificar uma relação ou comparar grupos para identificar causa e efeito. As duas abordagens são complementares: a quantitativa mede o efeito de um tratamento, e a qualitativa ajuda a entender por que os resultados são como são \cite{wohlin2000}.
+
+\citeonline{wohlin2000} descrevem três estratégias empíricas, que diferem principalmente no grau de controle que o pesquisador tem sobre o estudo:
+
+\begin{itemize}
+  \item \textbf{\textit{Survey}:} coleta dados por meio de questionários ou entrevistas aplicados a uma amostra representativa de uma população, para tirar conclusões descritivas ou explicativas e generalizá-las a essa população. Costuma ser feita em retrospecto, por exemplo, depois que uma ferramenta já está em uso, e não permite manipular variáveis;
+  \item \textbf{Estudo de caso:} é um método observacional, que acompanha um projeto ou uma atividade real enquanto ela acontece. Os fatores que podem afetar o resultado são identificados e documentados, mas o controle é menor que o de um experimento, e a situação estudada é a do projeto observado;
+  \item \textbf{Experimento:} é uma investigação formal e controlada, em que um ou mais fatores são manipulados e os demais são mantidos fixos. Os tratamentos são atribuídos aos sujeitos de forma aleatória, e o efeito da manipulação é medido e analisado estatisticamente. Quando a atribuição aleatória não é possível, fala-se em quase-experimento.
+\end{itemize}
+
+Neste trabalho, duas dessas noções são usadas. A revisão estruturada da literatura (Capítulo~\ref{cap:revisao}) caracteriza o que já foi publicado sobre a geração de CA com LLMs, e o quase-experimento planejado no Capítulo~\ref{cap:planejamento} compara a geração de cenários em \textit{Gherkin} com e sem a recuperação de contexto do projeto. As subseções a seguir apresentam a abordagem usada para definir o objetivo do trabalho e os fundamentos da revisão e do quase-experimento.
 
 \subsection{Paradigma GQM}
 \label{sec:ref-gqm}
-% {aqui vai o Goal-Question-Metric e o template de objetivo, porque nosso objetivo e as QPs foram definidos com GQM adaptado}
+
+O \textit{Goal Question Metric} (GQM) parte do princípio de que a medição deve ser definida de cima para baixo, a partir dos objetivos de quem mede, e não a partir dos dados que estão disponíveis \cite{basili1994}. O modelo resultante tem três níveis:
+
+\begin{itemize}
+  \item \textbf{Conceitual (objetivo):} define o objeto a ser medido, o propósito, o aspecto de qualidade de interesse, o ponto de vista e o ambiente em que a medição ocorre;
+  \item \textbf{Operacional (questão):} um conjunto de questões caracteriza como o objetivo será avaliado, olhando o objeto em relação ao aspecto de qualidade escolhido;
+  \item \textbf{Quantitativo (métrica):} a cada questão é associado um conjunto de dados que permite respondê-la de forma quantitativa.
+\end{itemize}
+
+\citeonline{wohlin2000} adotam essa ideia na definição de experimentos, por meio de um modelo de objetivo com cinco partes: analisar \textit{<objeto de estudo>}, com o propósito de \textit{<propósito>}, com respeito a \textit{<foco de qualidade>}, do ponto de vista de \textit{<perspectiva>}, no contexto de \textit{<contexto>}. Esse modelo foi usado para definir o objetivo deste trabalho (Tabela~\ref{tab:gqm}) e é retomado na definição do quase-experimento.
 
 \subsection{Revisão estruturada da literatura}
 \label{sec:ref-rsl}
-% {aqui vão o conceito de revisão estruturada (baseada nas diretrizes de revisão sistemática de Kitchenham), a estrutura PICOC e as diretrizes PRISMA 2020, porque fundamentam o método do capítulo da revisão}
 
-\subsection{Experimento}
+Uma revisão sistemática da literatura é um meio de identificar, avaliar e interpretar toda a pesquisa disponível que seja relevante para uma questão de pesquisa, um tema ou um fenômeno de interesse. Os estudos individuais analisados são chamados de estudos primários, e a revisão é um estudo secundário \cite{kitchenham2007}. Segundo \citeonline{kitchenham2007}, a revisão se divide em três fases: planejamento, condução e relato. No planejamento, é definido um protocolo com as questões de pesquisa, a estratégia de busca, os critérios de seleção e o procedimento de extração. Definir o protocolo antes de conduzir a revisão reduz o risco de que as escolhas dos pesquisadores sejam influenciadas pelos resultados encontrados.
+
+Para formular as questões e a busca, \citeonline{kitchenham2007} recomendam a estrutura PICOC, que organiza o tema em População, Intervenção, Comparação, Resultado (\textit{Outcome}) e Contexto. Essa estrutura amplia o PICO, usado na área da saúde para delimitar revisões sistemáticas \cite{pai2004}, com o elemento Contexto, que indica onde a intervenção é aplicada.
+
+Neste trabalho, chama-se revisão estruturada a revisão que segue as etapas propostas por \citeonline{kitchenham2007}, com protocolo, questões de pesquisa, \textit{string} de busca, critérios de seleção e formulário de extração, mas sem algumas etapas formais da revisão sistemática, como a avaliação da qualidade de cada estudo por meio de um \textit{checklist}. O protocolo adotado é descrito no Capítulo~\ref{cap:revisao}.
+
+\subsection{Experimento e quase-experimento}
 \label{sec:ref-experimento}
-% {aqui vão as fases do experimento: definição do escopo, planejamento, operação, análise e interpretação, apresentação e empacotamento, porque fundamenta o capítulo de planejamento}
 
-% [necessário]
-\section{Histórias de usuário e critérios de aceitação}
-\label{sec:hu-ca}
-% {aqui vai a introdução da seção ligando histórias de usuário e critérios, porque é a população e o desfecho do PICOC}
+\citeonline{wohlin2000} propõem um processo para conduzir experimentos que serve tanto para experimentos propriamente ditos quanto para quase-experimentos, frequentes na engenharia de \textit{software} quando não é possível obter amostras aleatórias. O processo tem cinco atividades:
 
-\subsection{Histórias de usuário}
-% {aqui vão a definição, o formato "Como... quero... para..." e o modelo INVEST, porque é a entrada da geração}
+\begin{itemize}
+  \item \textbf{Definição:} o experimento é definido em termos de problema, objetivo e metas, com o modelo de objetivo apresentado na Seção~\ref{sec:ref-gqm};
+  \item \textbf{Planejamento:} determina o contexto do experimento, formula as hipóteses nula (H0) e alternativa (H1), escolhe as variáveis independentes, que são as entradas manipuladas ou controladas, e as dependentes, que medem o efeito, e define as escalas de medida, que restringem os métodos estatísticos aplicáveis depois. Também são escolhidos os sujeitos e o desenho do experimento, incluindo a aleatorização, e preparada a instrumentação, com os objetos, as orientações e os procedimentos de medição. Por fim, avalia-se a validade dos resultados esperados, em quatro classes: interna, que trata da confiabilidade dos resultados no ambiente estudado; externa, que trata de quanto eles podem ser generalizados; de construto, que verifica se o tratamento e a medida representam de fato a causa e o efeito estudados; e de conclusão, que trata da relação entre o tratamento e o resultado;
+  \item \textbf{Operação:} compreende a preparação dos sujeitos e do material, a execução conforme o planejamento, com a coleta de dados, e a validação dos dados coletados;
+  \item \textbf{Análise e interpretação:} os dados são primeiro descritos com estatística descritiva e, se necessário, o conjunto é reduzido. Em seguida, aplica-se um teste de hipótese, escolhido conforme a escala de medida e os pressupostos sobre os dados. Testes paramétricos exigem, por exemplo, que os dados sigam uma distribuição normal, enquanto os não paramétricos têm menos pressupostos e podem ser usados de forma mais geral. A interpretação indica se a hipótese nula foi rejeitada e quais conclusões podem ser tiradas;
+  \item \textbf{Apresentação e empacotamento:} os resultados são documentados e o experimento é empacotado de forma que possa ser replicado.
+\end{itemize}
 
-\subsection{Critérios de aceitação}
-% {aqui vão a definição, o papel na aceitação da história, os formatos (lista de regras, cenários) e características de bons critérios (testável, atômico, não ambíguo), porque é o artefato central do trabalho}
+O processo não é sequencial em todas as etapas: é possível voltar e refinar a definição e o planejamento, mas não depois que a operação começa, pois os sujeitos já foram influenciados pelo experimento \cite{wohlin2000}.
 
-\section{Modelos de linguagem de grande porte}
-\label{sec:llm}
-% {aqui vão o conceito de LLM (transformer, pré-treinamento), modelos proprietários e abertos e formas de hospedagem (nuvem pública, privada, local), porque é a intervenção do PICOC e base da QP4}
+A diferença entre experimento e quase-experimento está na aleatorização. Em um quase-experimento, falta a seleção aleatória dos sujeitos ou dos objetos do estudo \cite{wohlin2000}. É o caso deste trabalho, em que os objetos são histórias de usuário de projetos escolhidos por terem cenários BDD de referência, e não sorteados de uma população. O planejamento do quase-experimento segue as atividades de definição e planejamento descritas acima e é apresentado no Capítulo~\ref{cap:planejamento}.
 
 \section{Métodos ágeis e engenharia de requisitos ágil}
 \label{sec:ageis}
-% {aqui vão os princípios ágeis e como requisitos são tratados (backlog, refinamento, Definition of Done), porque o contexto do GQM são aplicações web ágeis; pode ser curta}
 
+Os métodos ágeis ganharam forma em 2001, com o Manifesto para Desenvolvimento Ágil de \textit{Software}, assinado por 17 profissionais que buscavam pontos em comum entre abordagens mais leves de desenvolvimento. O manifesto resume esses pontos em quatro valores \cite[não paginado]{beck2001}:
+
+\begin{itemize}
+  \item indivíduos e interações mais que processos e ferramentas;
+  \item \textit{software} em funcionamento mais que documentação abrangente;
+  \item colaboração com o cliente mais que negociação de contratos;
+  \item responder a mudanças mais que seguir um plano.
+\end{itemize}
+
+Os próprios autores ressalvam que, ``mesmo havendo valor nos itens à direita, valorizamos mais os itens à esquerda'' \cite[não paginado]{beck2001}.
+
+Esses valores mudam a forma de tratar os requisitos. Processos prescritivos tentam levantar e documentar todos os requisitos no início do projeto. Já os projetos ágeis partem do princípio de que não é possível descobrir tudo de uma vez e de que a relevância de uma funcionalidade muda com o tempo e com o que já foi entregue \cite{cohn2004}. Por isso, os requisitos costumam ser registrados como histórias de usuário, cujos detalhes são adiados até perto do momento em que serão desenvolvidas. Uma funcionalidade ainda distante pode ser escrita como uma história grande, chamada épico, e depois dividida em histórias menores, refinadas em conversas entre a equipe do cliente e os desenvolvedores \cite{cohn2004}.
+
+No Scrum, essas histórias compõem o \textit{product backlog}, a lista de todas as funcionalidades desejadas para o produto. O \textit{backlog} não é escrito por completo no início do projeto: ele cresce e muda à medida que a equipe aprende sobre o produto e seus usuários, e seus itens são ordenados por prioridade pelo \textit{Product Owner} \cite{cohn2004}. Como os detalhes de cada história só são definidos quando ela se aproxima do desenvolvimento, é nesse momento que se escrevem as condições para que ela seja aceita, isto é, os critérios de aceitação, apresentados na Seção~\ref{sec:hu-ca}.
+
+\section{Histórias de usuário e critérios de aceitação}
+\label{sec:hu-ca}
+
+Histórias de usuário e critérios de aceitação são os dois artefatos centrais deste trabalho: a história é a entrada da geração, e os critérios são a saída avaliada no quase-experimento.
+
+Uma história de usuário descreve uma funcionalidade que tem valor para quem usa ou para quem adquire o sistema \cite{cohn2004}. Ela tem três aspectos, que Ron Jeffries chamou de cartão (\textit{Card}), conversa (\textit{Conversation}) e confirmação (\textit{Confirmation}): uma descrição escrita, usada no planejamento e como lembrete; as conversas em que os detalhes são definidos; e os testes que registram esses detalhes e permitem saber quando a história está concluída \cite{cohn2004}. O formato mais difundido vem da empresa Connextra: ``como (papel), quero (função) para que (valor de negócio)'' \cite{cohn2004}, como em ``como servidor do tribunal, quero cadastrar um processo para acompanhar seu andamento''.
+
+Os critérios de aceitação correspondem à confirmação. \citeonline{cohn2004} trata deles como testes de aceitação, que registram os detalhes surgidos nas conversas, documentam suposições do cliente e servem de critério para decidir se a história foi totalmente implementada. Por isso, devem ser escritos antes de a programação começar.
+
+Na prática profissional, os critérios de aceitação costumam ser escritos em linguagem natural estruturada, e o formato \textit{Gherkin}, com o padrão \textit{Given}--\textit{When}--\textit{Then}, é amplamente adotado para isso \cite{wang2025}. Na revisão estruturada deste trabalho, porém, ele divide espaço com listas de frases livres (Seção~\ref{sec:qp5}). \citeonline{wang2025} também diferenciam os critérios de aceitação de testes de unidade e de integração. Estes verificam detalhes de implementação. Já os critérios refletem objetivos de alto nível do usuário e do negócio, nuances do domínio e o comportamento esperado do sistema. Escrevê-los à mão exige conhecer o requisito e o contexto, além de tempo. O trabalho fica mais difícil quando a história é ambígua ou traz poucos detalhes. Essa dificuldade motiva o uso de LLMs na geração (Seção~\ref{sec:llm}).
+
+Um critério de aceitação costuma verificar mais de uma condição. Por isso, \citeonline{wang2025} dividem os critérios de referência em objetivos de teste atômicos, cada um com uma única condição verificável. Assim, é possível medir se um critério gerado cobre cada objetivo de forma total, parcial ou nula. Essa decomposição é a base das métricas de avaliação usadas neste trabalho (Seção~\ref{sec:ref-avaliacao}). O formato \textit{Gherkin} e a prática que o originou são apresentados na Seção~\ref{sec:bdd}.
+
+% [necessário]
 \section{\textit{Behavior-Driven Development} e \textit{Gherkin}}
 \label{sec:bdd}
-% {aqui vão o BDD, a sintaxe Gherkin (Feature, Scenario, Given/When/Then) com exemplo e ferramentas (Cucumber, Behave), porque Gherkin é o formato de saída no objetivo GQM}
 
-\section{Técnicas de apoio à geração com LLMs}
+O \textit{Behavior-Driven Development} (BDD) surgiu do desenvolvimento orientado a testes (TDD). Ao ensinar TDD, \citeonline{north2006} percebeu que os programadores tinham sempre as mesmas dúvidas: por onde começar, o que testar e que nome dar aos testes. Ao trocar a palavra ``teste'' por ``comportamento'', o autor passou a chamar a prática de BDD. Depois, junto com o analista de negócio Chris Matts, levou a ideia para os requisitos, partindo do modelo de história ``como [X], quero [Y], para que [Z]'' (Seção~\ref{sec:hu-ca}). Os autores concluíram que ``o comportamento de uma história são simplesmente os seus critérios de aceitação'' \cite[não paginado, tradução nossa]{north2006}. Para registrá-los, propuseram cenários em três partes: dado (\textit{Given}) um contexto inicial, quando (\textit{When}) ocorre um evento, então (\textit{Then}) garanta alguns resultados. Como cada parte pode ser ligada ao código, os critérios de aceitação se tornam executáveis \cite{north2006}.
+
+Em um mapeamento sistemático, \citeonline{binamungu2023} definem o BDD como uma técnica ágil em que os requisitos são especificados por exemplos do comportamento esperado, escritos em linguagem natural semiestruturada. Esses exemplos, os cenários, servem ao mesmo tempo como requisitos e como casos de teste. Os autores também apontam a falta de métricas para medir a qualidade das especificações BDD, lacuna retomada na Seção~\ref{sec:ref-avaliacao}.
+
+Os cenários costumam ser escritos em \textit{Gherkin}, formato amplamente adotado para CA \cite{wang2025}. O \textit{Gherkin} usa palavras-chave para dar estrutura a especificações executáveis \cite{cucumber2026}. A palavra-chave \texttt{Feature} descreve uma funcionalidade e agrupa os cenários relacionados. Cada \texttt{Scenario} é um exemplo concreto de uma regra de negócio, formado por passos. Os passos começam por \texttt{Given} (contexto inicial), \texttt{When} (evento ou ação) e \texttt{Then} (resultado esperado, observável por quem usa o sistema), e \texttt{And} e \texttt{But} encadeiam passos do mesmo tipo. Ferramentas como o Cucumber executam cada passo por meio de uma definição de passo (\textit{step definition}), um bloco de código associado ao texto do passo \cite{cucumber2026}.
+
+Os cenários do CAPJu \cite{capju2026cenarios}, junto com os critérios do MeasureSoftGram transcritos para \textit{Gherkin}, formam o gabarito do quase-experimento (Capítulo~\ref{cap:planejamento}).
+
+Três conceitos aparecem juntos neste trabalho e precisam ser separados. O BDD é uma prática de desenvolvimento, que usa exemplos de comportamento para especificar e testar o \textit{software}. O \textit{Gherkin} é uma linguagem, com palavras-chave e estrutura definidas, que ferramentas como o Cucumber leem e executam. Já o \textit{Given-When-Then} é um padrão de escrita de passos, proposto por \citeonline{north2006}, que pode aparecer também em frases livres, sem a estrutura do \textit{Gherkin}. Assim, todo cenário em \textit{Gherkin} segue o padrão \textit{Given-When-Then}, mas nem todo texto nesse padrão é \textit{Gherkin}. Essa distinção é usada na análise dos formatos de saída da revisão (Seção~\ref{sec:qp5}). Neste trabalho, o \textit{Gherkin} é o formato de saída dos CA gerados, conforme o objetivo da Tabela~\ref{tab:gqm}.
+
+% [necessário]
+\section{Modelos de linguagem de grande porte}
+\label{sec:llm}
+
+Os modelos de linguagem de grande porte (LLMs) são a intervenção estudada na revisão e o instrumento de geração do quase-experimento. Um modelo de linguagem define uma distribuição de probabilidade sobre sequências de \textit{tokens}, em geral pela previsão do próximo \textit{token} a partir dos anteriores, e costuma ser implementado com uma rede \textit{transformer} \cite{ram2023}. Proposto por \citeonline{vaswani2017}, o \textit{transformer} se baseia apenas em mecanismos de atenção, que relacionam as posições de uma sequência para representá-la e permitem paralelizar o treinamento. Na geração, o modelo é autorregressivo: produz um símbolo por vez a partir dos que já gerou \cite{vaswani2017}.
+
+Esses modelos são pré-treinados com grandes volumes de texto por aprendizado autossupervisionado, que permite adquirir representações gerais da linguagem sem dados rotulados \cite{cheng2026}. No processamento de linguagem natural, área a que os LLMs pertencem, o caminho usual era pré-treinar o modelo e depois ajustá-lo a cada tarefa com milhares de exemplos. \citeonline{brown2020} mostraram que, com o aumento de escala, um modelo de 175 bilhões de parâmetros, o GPT-3, executa tarefas novas sem esse ajuste, apenas com instruções e exemplos escritos no texto de entrada. Essa forma de uso é a base das estratégias de \textit{prompt} (Seção~\ref{sec:tecnicas-llm}).
+
+Quanto ao acesso, os modelos se dividem em proprietários, como GPT, Claude e Gemini, e abertos, como o LLaMA \cite{cheng2026}. Os proprietários são acessados pela interface de programação do fornecedor, enquanto os de pesos abertos podem ser executados na infraestrutura de quem os usa \cite{huang2026}. Essa diferença importa quando requisitos e histórias de usuário não devem ser compartilhados externamente \cite{zyberaj2026}. Os modelos e as formas de hospedagem dos estudos da revisão são apresentados na Seção~\ref{sec:qp4}.
+
+\subsection{Estratégias de \textit{prompt}}
 \label{sec:tecnicas-llm}
-% {prompting (zero-shot, few-shot, chain-of-thought), RAG, fine-tuning, entrada multimodal e agentes}
+
+O \textit{prompt} é o texto de entrada que descreve a tarefa ao LLM. Em \citeonline{brown2020}, a tarefa e os exemplos são especificados apenas por esse texto, sem atualizar os pesos do modelo, processo que os autores chamam de aprendizado em contexto (\textit{in-context learning}). As estratégias de \textit{prompt} variam no que é colocado nesse texto. Quatro delas, usadas nos estudos da revisão (Seção~\ref{sec:qp5}), são:
+
+\begin{itemize}
+  \item \textbf{\textit{Zero-shot}:} o modelo recebe apenas uma instrução que descreve a tarefa, sem exemplos. É a forma mais conveniente, mas também a mais difícil \cite{brown2020};
+  \item \textbf{\textit{Few-shot}:} o \textit{prompt} traz alguns exemplos da tarefa, cada um com uma entrada e a saída desejada, seguidos da entrada que o modelo deve completar. Com um único exemplo, fala-se em \textit{one-shot} \cite{brown2020};
+  \item \textbf{\textit{Chain-of-thought}:} cada exemplo do \textit{prompt} inclui uma cadeia de pensamento, isto é, passos intermediários de raciocínio que levam à resposta final. O ganho depende da escala: no estudo original, só apareceu em modelos com cerca de 100 bilhões de parâmetros \cite{wei2022};
+  \item \textbf{Atribuição de papel:} o \textit{prompt} define um papel para o modelo, como analista de requisitos ou especialista em testes, para que as respostas reflitam a perspectiva exigida \cite{zhang2024}. Em \citeonline{li2024}, o \textit{prompt} baseado em papéis aumentou a completude dos CA gerados em todos os modelos comparados.
+\end{itemize}
+
+\subsection{Geração aumentada por recuperação}
+\label{sec:ref-rag}
+
+Um LLM guarda o que aprendeu no pré-treinamento em seus próprios parâmetros. Segundo \citeonline{lewis2020}, essa memória não pode ser facilmente ampliada ou revisada, não mostra de onde vem cada resposta e pode produzir alucinações. O problema se agrava quando a geração envolve domínios pouco comuns ou dados privados \cite{ram2023}. É o caso das histórias de um projeto específico, cujo contexto não estava disponível no pré-treinamento do modelo \cite{wang2025}.
+
+A geração aumentada por recuperação (RAG) combina essa memória paramétrica com uma memória não paramétrica, formada por um índice de documentos representados como vetores e consultada por um recuperador \cite{lewis2020}. Assim, o conhecimento pode ser atualizado trocando o índice, sem treinar o modelo de novo \cite{lewis2020}. Dada uma consulta, o sistema busca no índice o conteúdo mais relevante, que é enviado ao LLM junto com o \textit{prompt} \cite{wang2025}.
+
+Na recuperação semântica, cada texto é mapeado para um espaço vetorial em que textos de significado parecido ficam próximos \cite{reimers2019}. Esses vetores são chamados de \textit{embeddings}. Um modelo comum para gerá-los é o SBERT (\textit{Sentence-BERT}), que \citeonline{wang2025} chamam de SentBERT: ele adapta a rede BERT para produzir \textit{embeddings} de frases comparáveis entre si \cite{reimers2019}. A proximidade entre a consulta $q$ e um documento $d$ costuma ser medida pela similaridade de cosseno entre seus vetores $\mathbf{v}_q$ e $\mathbf{v}_d$ \cite{ma2024}:
+
+\begin{equation}
+  \label{eq:cosseno}
+  \mathrm{sim}(q, d) = \frac{\mathbf{v}_q \cdot \mathbf{v}_d}{\|\mathbf{v}_q\| \, \|\mathbf{v}_d\|}
+\end{equation}
+
+A recuperação devolve os $k$ documentos mais relevantes para a consulta, o chamado \textit{top-k} \cite{ma2024,wang2025}.
+
+O tratamento com RAG deste trabalho segue a abordagem RAGcceptance M2RE de \citeonline{wang2025}, em que a história de usuário serve de consulta para duas recuperações. A recuperação textual (T-RAG), sobre os documentos do domínio, usa o ICRALM (\textit{In-Context Retrieval-Augmented Language Models}), que mantém o LLM inalterado e coloca os documentos recuperados antes do texto de entrada, sem treinamento adicional. Por isso, funciona mesmo com modelos acessados apenas por interface de programação \cite{ram2023}. A recuperação visual (V-RAG), sobre as capturas de tela do sistema, usa o DSE (\textit{Document Screenshot Embedding}), que codifica a tela inteira com um modelo de visão e linguagem e, assim, preserva texto, imagem e \textit{layout} sem precisar extrair o conteúdo \cite{ma2024}. Em \citeonline{wang2025}, o ICRALM superou o SBERT na recuperação textual, e o DSE teve resultado um pouco melhor que as alternativas que convertem as telas em HTML. Por isso, os autores adotaram os dois, cada um com os cinco primeiros resultados. Nos três LLMs avaliados, as versões com RAG superaram as versões sem RAG. A recuperação, porém, também pode trazer conteúdo irrelevante, o chamado ruído de recuperação \cite{wang2025}.
+
+No tratamento sem RAG, o campo de contexto do \textit{prompt} fica vazio, como na ablação sem RAG de \citeonline{wang2025} (Capítulo~\ref{cap:planejamento}).
+
+\subsection{Entrada multimodal}
+\label{sec:ref-multimodal}
+
+Avanços recentes integraram capacidades de visão aos LLMs, que passaram a processar texto e imagem ao mesmo tempo. Há modelos comerciais com essa capacidade, como o GPT-4V, e modelos abertos, como o LLaVA \cite{ma2024}. Esses modelos multimodais podem receber, além do texto da tarefa, imagens como capturas de tela, protótipos ou diagramas \cite{wang2025,zyberaj2026}.
+
+Em \citeonline{wang2025}, as capturas de tela recuperadas são enviadas ao LLM codificadas em base64, junto com o \textit{prompt}. Segundo os autores, a informação visual é especialmente útil para gerar CA ligados à interface. Na comparação sem RAG, eles mantiveram o mesmo modelo de \textit{prompt} e retiraram as imagens. A versão completa superou essa variação na maior parte das medidas. Para os autores, uma explicação possível é que o texto do domínio já dá contexto suficiente, mas as imagens são decisivas para a correção dos CA \cite{wang2025}.
+
+No quase-experimento, as capturas de tela e os protótipos dos projetos entram como imagem apenas no tratamento com RAG, recuperados pelo DSE (Capítulo~\ref{cap:planejamento}).
+
+% [necessário]
+\section{Avaliação de critérios gerados}
+\label{sec:ref-avaliacao}
+
+Para comparar os CA gerados com e sem RAG, é preciso medi-los. Esta seção apresenta os conceitos de medição e as métricas que sustentam a análise da QP8 (Seção~\ref{sec:qp8}) e a avaliação planejada no Capítulo~\ref{cap:planejamento}.
+
+Segundo \citeonline[p.~25]{wohlin2000}, a medição é um mapeamento do mundo empírico para um mundo formal, e a medida é o número ou o símbolo que esse mapeamento atribui a uma entidade para caracterizar um de seus atributos. Neste trabalho, chama-se métrica uma medida com cálculo e interpretação definidos, critério também usado na QP8. As medidas podem ser objetivas, que dependem só do objeto medido, ou subjetivas, em que quem mede faz um julgamento \cite[p.~28]{wohlin2000}. As similaridades textuais descritas adiante são objetivas. Já as notas atribuídas por pessoas ou por LLMs são subjetivas.
+
+A forma mais direta de avaliar CA gerados é compará-los com um gabarito, isto é, um conjunto de CA de referência escritos por pessoas. \citeonline{li2024} fazem essa comparação pela validade e pela completude. A validade é a proporção dos CA gerados que correspondem a algum item do gabarito e equivale à precisão. A completude é a proporção dos itens do gabarito encontrados na saída e equivale à revocação (\textit{recall}) \cite[p.~26--27]{li2024}.
+
+\citeonline{wang2025} refinam essa comparação. Como um CA de referência pode conter várias condições, eles o dividem manualmente em objetivos de teste atômicos (Seção~\ref{sec:hu-ca}). Para cada objetivo, três LLMs (Claude 3.5 Sonnet, Gemini 2 Flash e GPT-4o) classificam a cobertura dos CA gerados em total, parcial ou nenhuma. Um objetivo conta para o Acc@Hit quando todos os juízes indicam ao menos cobertura parcial, e para o Acc@Cor quando todos indicam cobertura total. Cada métrica é a razão entre os objetivos contados e o total de objetivos $n$ \cite[p.~3341]{wang2025}:
+
+\begin{equation}
+  \mathrm{Acc@Hit} = \frac{\mathit{hit}}{n}, \qquad \mathrm{Acc@Cor} = \frac{\mathit{cor}}{n}
+\end{equation}
+
+As duas métricas podem ser calculadas por caso, como a média das acurácias de cada história de usuário, ou por ponto, considerando todos os objetivos de teste em conjunto. A primeira indica se o método se adapta a histórias diferentes, e a segunda, o desempenho absoluto da geração \cite[p.~3341]{wang2025}.
+
+\citeonline{wang2025} também usam medidas de similaridade entre o texto gerado e o gabarito, inspirados em \citeonline{arora2024}:
+
+\begin{itemize}
+  \item \textbf{Similaridade de cosseno:} compara os \textit{embeddings} SentBERT do texto gerado e do gabarito (Equação~\ref{eq:cosseno}) \cite[p.~3341]{wang2025};
+  \item \textbf{BLEU:} mede a precisão de n-gramas, isto é, de sequências de \textit{n} palavras, do texto gerado em relação à referência, com uma penalidade para textos mais curtos. O valor vai de 0 a 1 \cite[p.~312, 315]{papineni2002};
+  \item \textbf{ROUGE:} conta as palavras e as sequências de palavras em comum com a referência, com foco na revocação \cite[p.~247]{arora2024};
+  \item \textbf{Distância de Levenshtein:} é o menor número de edições de um único caractere necessárias para transformar um texto no outro. Quanto menor o valor, mais parecidos são os textos \cite[p.~3341]{wang2025}.
+\end{itemize}
+
+Essas medidas comparam a forma do texto, e não o seu sentido. Pontuações baseadas em n-gramas muitas vezes não captam melhorias de sentido \cite[p.~3343]{wang2025}, de modo que um CA equivalente ao gabarito, mas escrito com outras palavras, pode receber nota baixa. Por isso, \citeonline{wang2025} as tratam como complemento do julgamento por LLMs.
+
+No paradigma LLM como juiz (\textit{LLMs-as-judges}), um LLM avalia saídas geradas com base em critérios definidos \cite[p.~3]{li2024judges}. É uma alternativa escalável à avaliação humana, com menor custo e tempo \cite[p.~2]{li2024judges}. Os juízes, porém, podem ter vieses, como favorecer respostas mais longas ou geradas pelo próprio modelo \cite[p.~37]{li2024judges}, e mesmo os melhores modelos não se alinham totalmente aos avaliadores humanos \cite[p.~404--405]{thakur2025}. Entre as formas de reduzir esses riscos estão fornecer uma resposta de referência e combinar vários LLMs \cite[p.~41]{li2024judges}, duas precauções adotadas por \citeonline{wang2025}.
+
+Neste trabalho, o Acc@Hit e o Acc@Cor por caso são as métricas principais da comparação entre a geração com e sem RAG. A acurácia por ponto e as medidas de similaridade são reportadas de forma descritiva, como complemento. O uso de cada uma no quase-experimento é detalhado no Capítulo~\ref{cap:planejamento}.

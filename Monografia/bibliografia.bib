@@ -54,12 +54,12 @@
 }
 
 @misc{north2006,
-  author        = {D. North},
+  author        = {Dan North},
   title         = {Introducing {BDD}},
-  howpublished  = {Better Software},
+  howpublished  = {Publicado originalmente na revista Better Software, mar. 2006},
   year          = {2006},
   url           = {https://dannorth.net/blog/introducing-bdd/},
-  urlaccessdate = {4 nov. 2026}
+  urlaccessdate = {20 nov. 2026}
 }
 
 @article{pai2004,
@@ -79,6 +79,14 @@
   address   = {New York},
   year      = {2000},
   doi       = {10.1007/978-1-4615-4625-2}
+}
+
+@misc{beck2001,
+  author        = {Kent Beck and Mike Beedle and Arie van Bennekum and Alistair Cockburn and Ward Cunningham and Martin Fowler and James Grenning and Jim Highsmith and Andrew Hunt and Ron Jeffries and Jon Kern and Brian Marick and Robert C. Martin and Steve Mellor and Ken Schwaber and Jeff Sutherland and Dave Thomas},
+  title         = {Manifesto para desenvolvimento ágil de software},
+  year          = {2001},
+  url           = {https://agilemanifesto.org/iso/ptbr/manifesto.html},
+  urlaccessdate = {17 nov. 2026}
 }
 
 @misc{elsevier2026,
@@ -416,4 +424,111 @@
   url           = {https://github.com/fga-eps-mds/2026.2-MeasureSoftGram-DOC},
   urlaccessdate = {17 nov. 2026},
   note          = {Reposit{\'o}rio GitHub}
+}
+
+% Documentação oficial do Gherkin (página web; sem PDF).
+% Página: "Reference | Cucumber", "Last updated on Nov 17, 2026", "Copyright © 2014-2026 The Cucumber Open Source Project".
+@misc{cucumber2026,
+  author        = {{CUCUMBER}},
+  title         = {Gherkin reference},
+  year          = {2026},
+  url           = {https://cucumber.io/docs/gherkin/reference/},
+  urlaccessdate = {20 nov. 2026}
+}
+
+% ===========================================================================
+% Referências novas da Seção 2.6 (Modelos de linguagem de grande porte).
+% Dados tirados da primeira página de cada PDF em docs/Referencial Teorico/.
+% Venue só quando o próprio PDF o declara (Vaswani: NIPS 2017; Wei: NeurIPS 2022).
+% Os demais PDFs são versões do arXiv sem indicação de publicação: entram como misc (arXiv).
+% ===========================================================================
+
+@inproceedings{vaswani2017,
+  author    = {Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and {\L}ukasz Kaiser and Illia Polosukhin},
+  title     = {Attention is all you need},
+  booktitle = {31st Conference on Neural Information Processing Systems (NIPS 2017)},
+  address   = {Long Beach},
+  year      = {2017},
+  note      = {Disponível em: arXiv:1706.03762v7}
+}
+
+@misc{brown2020,
+  author       = {Tom B. Brown and Benjamin Mann and Nick Ryder and Melanie Subbiah and Jared Kaplan and Prafulla Dhariwal and Arvind Neelakantan and Pranav Shyam and Girish Sastry and Amanda Askell and Sandhini Agarwal and Ariel Herbert-Voss and Gretchen Krueger and Tom Henighan and Rewon Child and Aditya Ramesh and Daniel M. Ziegler and Jeffrey Wu and Clemens Winter and Christopher Hesse and Mark Chen and Eric Sigler and Mateusz Litwin and Scott Gray and Benjamin Chess and Jack Clark and Christopher Berner and Sam McCandlish and Alec Radford and Ilya Sutskever and Dario Amodei},
+  title        = {Language models are few-shot learners},
+  howpublished = {arXiv:2005.14165},
+  year         = {2020}
+}
+
+@inproceedings{wei2022,
+  author    = {Jason Wei and Xuezhi Wang and Dale Schuurmans and Maarten Bosma and Brian Ichter and Fei Xia and Ed H. Chi and Quoc V. Le and Denny Zhou},
+  title     = {Chain-of-thought prompting elicits reasoning in large language models},
+  booktitle = {36th Conference on Neural Information Processing Systems (NeurIPS 2022)},
+  year      = {2022},
+  note      = {Disponível em: arXiv:2201.11903v6}
+}
+
+@misc{lewis2020,
+  author       = {Patrick Lewis and Ethan Perez and Aleksandra Piktus and Fabio Petroni and Vladimir Karpukhin and Naman Goyal and Heinrich K{\"u}ttler and Mike Lewis and Wen-tau Yih and Tim Rockt{\"a}schel and Sebastian Riedel and Douwe Kiela},
+  title        = {Retrieval-augmented generation for knowledge-intensive {NLP} tasks},
+  howpublished = {arXiv:2005.11401},
+  year         = {2020}
+}
+
+@misc{reimers2019,
+  author       = {Nils Reimers and Iryna Gurevych},
+  title        = {{Sentence-BERT}: sentence embeddings using siamese {BERT}-networks},
+  howpublished = {arXiv:1908.10084},
+  year         = {2019}
+}
+
+@misc{ram2023,
+  author       = {Ori Ram and Yoav Levine and Itay Dalmedigos and Dor Muhlgay and Amnon Shashua and Kevin Leyton-Brown and Yoav Shoham},
+  title        = {In-context retrieval-augmented language models},
+  howpublished = {arXiv:2302.00083},
+  year         = {2023}
+}
+
+@misc{ma2024,
+  author       = {Xueguang Ma and Sheng-Chieh Lin and Minghan Li and Wenhu Chen and Jimmy Lin},
+  title        = {Unifying multimodal retrieval via document screenshot embedding},
+  howpublished = {arXiv:2406.11251},
+  year         = {2024}
+}
+
+% Novas entradas da Seção 2.7 (Avaliação de critérios gerados).
+% Dados lidos dos PDFs em docs/Referencial Teorico/.
+
+@inproceedings{papineni2002,
+  author    = {Kishore Papineni and Salim Roukos and Todd Ward and Wei-Jing Zhu},
+  title     = {{BLEU}: a method for automatic evaluation of machine translation},
+  booktitle = {Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics (ACL)},
+  address   = {Philadelphia},
+  pages     = {311--318},
+  year      = {2002}
+}
+
+@inproceedings{arora2024,
+  author    = {Chetan Arora and Tomas Herda and Verena Homm},
+  title     = {Generating test scenarios from {NL} requirements using retrieval-augmented {LLMs}: an industrial study},
+  booktitle = {2024 IEEE 32nd International Requirements Engineering Conference (RE)},
+  publisher = {IEEE},
+  pages     = {240--251},
+  year      = {2024},
+  doi       = {10.1109/RE59067.2024.00031}
+}
+
+@misc{li2024judges,
+  author       = {Haitao Li and Qian Dong and Junjie Chen and Huixue Su and Yujia Zhou and Qingyao Ai and Ziyi Ye and Yiqun Liu},
+  title        = {{LLMs}-as-judges: a comprehensive survey on {LLM}-based evaluation methods},
+  howpublished = {arXiv:2412.05579},
+  year         = {2024}
+}
+
+@inproceedings{thakur2025,
+  author    = {Aman Singh Thakur and Kartik Choudhary and Venkat Srinik Ramayapally and Sankaran Vaidyanathan and Dieuwke Hupkes},
+  title     = {Judging the judges: evaluating alignment and vulnerabilities in {LLMs}-as-judges},
+  booktitle = {Proceedings of the Fourth Workshop on Generation, Evaluation and Metrics ({GEM}$^2$)},
+  publisher = {Association for Computational Linguistics},
+  pages     = {404--430},
+  year      = {2025}
 }

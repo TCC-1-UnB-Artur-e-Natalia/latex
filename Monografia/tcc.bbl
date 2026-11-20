@@ -5,6 +5,13 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Arora, Herda e Homm 2024]{arora2024}
+\abntrefinfo{Arora, Herda e Homm}{ARORA; HERDA; HOMM}{2024}
+{ARORA, C.; HERDA, T.; HOMM, V. Generating test scenarios from {NL}
+  requirements using retrieval-augmented {LLMs}: an industrial study. In:
+  \emph{2024 IEEE 32nd International Requirements Engineering Conference (RE)}.
+  [S.l.]: IEEE, 2024. p. 240--251.}
+
 \bibitem[Avasiloaie et al. 2025]{avasiloaie2025}
 \abntrefinfo{Avasiloaie et al.}{AVASILOAIE et al.}{2025}
 {AVASILOAIE, A.-P. et al. Transforming user story definition: from
@@ -24,6 +31,12 @@
 {BASILI, V.~R.; CALDIERA, G.; ROMBACH, H.~D. The goal question metric approach.
   In:  MARCINIAK, J.~J. (Ed.). \emph{Encyclopedia of Software Engineering}.
   [S.l.]: Wiley, 1994. v.~1, p. 528--532.}
+
+\bibitem[Beck et al. 2001]{beck2001}
+\abntrefinfo{Beck et al.}{BECK et al.}{2001}
+{BECK, K. et al. \emph{Manifesto para desenvolvimento ágil de software}. 2001.
+Dispon{\'\i}vel em: \url{https://agilemanifesto.org/iso/ptbr/manifesto.html}.
+  Acesso em: 17 nov. 2026.}
 
 \bibitem[Binamungu e Maro 2023]{binamungu2023}
 \abntrefinfo{Binamungu e Maro}{BINAMUNGU; MARO}{2023}
@@ -46,6 +59,11 @@
   on Software Engineering Education and Training (CSEE\&T)}. [S.l.]: IEEE,
   2024.}
 
+\bibitem[Brown et al. 2020]{brown2020}
+\abntrefinfo{Brown et al.}{BROWN et al.}{2020}
+{BROWN, T.~B. et al. \emph{Language models are few-shot learners}. 2020.
+  ArXiv:2005.14165.}
+
 \bibitem[Cheng et al. 2026]{cheng2026}
 \abntrefinfo{Cheng et al.}{CHENG et al.}{2026}
 {CHENG, H. et al. Generative {AI} for requirements engineering: a systematic
@@ -57,6 +75,12 @@
 {COHN, M. \emph{User stories applied: for agile software development}. Boston:
   Addison-Wesley, 2004.}
 
+\bibitem[{CUCUMBER} 2026]{cucumber2026}
+\abntrefinfo{{CUCUMBER}}{{CUCUMBER}}{2026}
+{{CUCUMBER}. \emph{Gherkin reference}. 2026.
+Dispon{\'\i}vel em: \url{https://cucumber.io/docs/gherkin/reference/}. Acesso
+  em: 20 nov. 2026.}
+
 \bibitem[{ELSEVIER} 2026]{elsevier2026}
 \abntrefinfo{{ELSEVIER}}{{ELSEVIER}}{2026}
 {{ELSEVIER}. \emph{Scopus}. Elsevier, 2026.
@@ -67,6 +91,21 @@ Dispon{\'\i}vel em: \url{https://www.scopus.com}. Acesso em: 5 nov. 2026.}
 {FERREIRA, M. et al. Acceptance test generation with large language models: an
   industrial case study. In:  \emph{IEEE/ACM International Conference on
   Automation of Software Test (AST)}. Ottawa: IEEE, 2025. p. 1--11.}
+
+\bibitem[FGA-EPS-MDS 2023]{capju2023doc}
+\abntrefinfo{FGA-EPS-MDS}{FGA-EPS-MDS}{2023}
+{FGA-EPS-MDS. \emph{{2023-1-CAPJu-Doc}}. 2023.
+Reposit{\'o}rio GitHub.
+Dispon{\'\i}vel em: \url{https://github.com/fga-eps-mds/2023-1-CAPJu-Doc}.
+  Acesso em: 17 nov. 2026.}
+
+\bibitem[FGA-EPS-MDS 2026]{measuresoftgram2026doc}
+\abntrefinfo{FGA-EPS-MDS}{FGA-EPS-MDS}{2026}
+{FGA-EPS-MDS. \emph{{2026.2-MeasureSoftGram-DOC}}. 2026.
+Reposit{\'o}rio GitHub.
+Dispon{\'\i}vel em:
+  \url{https://github.com/fga-eps-mds/2026.2-MeasureSoftGram-DOC}. Acesso em:
+  17 nov. 2026.}
 
 \bibitem[Hassani, Sabetzadeh e Amyot 2026]{hassani2026}
 \abntrefinfo{Hassani, Sabetzadeh e Amyot}{HASSANI; SABETZADEH; AMYOT}{2026}
@@ -116,8 +155,18 @@ Dispon{\'\i}vel em: \url{https://www.scopus.com}. Acesso em: 5 nov. 2026.}
   literature reviews in software engineering}.
 Keele; Durham, 2007. Version 2.3.}
 
+\bibitem[Lewis et al. 2020]{lewis2020}
+\abntrefinfo{Lewis et al.}{LEWIS et al.}{2020}
+{LEWIS, P. et al. \emph{Retrieval-augmented generation for knowledge-intensive
+  {NLP} tasks}. 2020. ArXiv:2005.11401.}
+
+\bibitem[Li et al. 2024]{li2024judges}
+\abntrefinfo{Li et al.}{LI et al.}{2024a}
+{LI, H. et al. \emph{{LLMs}-as-judges: a comprehensive survey on {LLM}-based
+  evaluation methods}. 2024. ArXiv:2412.05579.}
+
 \bibitem[Li et al. 2024]{li2024}
-\abntrefinfo{Li et al.}{LI et al.}{2024}
+\abntrefinfo{Li et al.}{LI et al.}{2024b}
 {LI, Y. et al. {SimAC}: simulating agile collaboration to generate acceptance
   criteria in user story elaboration.
 \emph{Automated Software Engineering}, v.~31, p.~55, 2024.}
@@ -128,6 +177,11 @@ Keele; Durham, 2007. Version 2.3.}
   quality using large language models in agile development. In:
   \emph{International Conference on Intelligent Systems: Theories and
   Applications (SITA)}. [S.l.]: IEEE, 2025.}
+
+\bibitem[Ma et al. 2024]{ma2024}
+\abntrefinfo{Ma et al.}{MA et al.}{2024}
+{MA, X. et al. \emph{Unifying multimodal retrieval via document screenshot
+  embedding}. 2024. ArXiv:2406.11251.}
 
 \bibitem[Ma et al. 2026]{ma2026}
 \abntrefinfo{Ma et al.}{MA et al.}{2026}
@@ -144,9 +198,10 @@ Keele; Durham, 2007. Version 2.3.}
 
 \bibitem[North 2006]{north2006}
 \abntrefinfo{North}{NORTH}{2006}
-{NORTH, D. \emph{Introducing {BDD}}. 2006. Better Software.
+{NORTH, D. \emph{Introducing {BDD}}. 2006. Publicado originalmente na revista
+  Better Software, mar. 2006.
 Dispon{\'\i}vel em: \url{https://dannorth.net/blog/introducing-bdd/}. Acesso
-  em: 4 nov. 2026.}
+  em: 20 nov. 2026.}
 
 \bibitem[Pai et al. 2004]{pai2004}
 \abntrefinfo{Pai et al.}{PAI et al.}{2004}
@@ -154,12 +209,24 @@ Dispon{\'\i}vel em: \url{https://dannorth.net/blog/introducing-bdd/}. Acesso
   step-by-step guide.
 \emph{The National Medical Journal of India}, v.~17, n.~2, p. 86--95, 2004.}
 
+\bibitem[Papineni et al. 2002]{papineni2002}
+\abntrefinfo{Papineni et al.}{PAPINENI et al.}{2002}
+{PAPINENI, K. et al. {BLEU}: a method for automatic evaluation of machine
+  translation. In:  \emph{Proceedings of the 40th Annual Meeting of the
+  Association for Computational Linguistics (ACL)}. Philadelphia: [s.n.], 2002.
+  p. 311--318.}
+
 \bibitem[Rahman et al. 2024]{rahman2024}
 \abntrefinfo{Rahman et al.}{RAHMAN et al.}{2024}
 {RAHMAN, T. et al. Take loads off your developers: automated user story
   generation using large language model. In:  \emph{IEEE International
   Conference on Software Maintenance and Evolution (ICSME)}. [S.l.]: IEEE,
   2024. p. 791--800.}
+
+\bibitem[Ram et al. 2023]{ram2023}
+\abntrefinfo{Ram et al.}{RAM et al.}{2023}
+{RAM, O. et al. \emph{In-context retrieval-augmented language models}. 2023.
+  ArXiv:2302.00083.}
 
 \bibitem[Rawson e Reddivari 2025]{rawson2025framework}
 \abntrefinfo{Rawson e Reddivari}{RAWSON; REDDIVARI}{2025a}
@@ -173,6 +240,11 @@ Dispon{\'\i}vel em: \url{https://dannorth.net/blog/introducing-bdd/}. Acesso
   context-aware acceptance criteria generation for user stories. In:
   \emph{IEEE International Conference on Information Reuse and Integration and
   Data Science (IRI)}. [S.l.]: IEEE, 2025. p. 325--330.}
+
+\bibitem[Reimers e Gurevych 2019]{reimers2019}
+\abntrefinfo{Reimers e Gurevych}{REIMERS; GUREVYCH}{2019}
+{REIMERS, N.; GUREVYCH, I. \emph{{Sentence-BERT}: sentence embeddings using
+  siamese {BERT}-networks}. 2019. ArXiv:1908.10084.}
 
 \bibitem[Rotar e Zhang 2025]{rotar2025}
 \abntrefinfo{Rotar e Zhang}{ROTAR; ZHANG}{2025}
@@ -188,11 +260,31 @@ Dispon{\'\i}vel em: \url{https://dannorth.net/blog/introducing-bdd/}. Acesso
   International Conference on Software Engineering (ICSE)}. [S.l.]: IEEE, 2025.
   p. 1385--1395.}
 
+\bibitem[Sorte e Oliveira 2026]{capju2026cenarios}
+\abntrefinfo{Sorte e Oliveira}{SORTE; OLIVEIRA}{2026}
+{SORTE, G. F.~B.; OLIVEIRA, L. d.~A. \emph{{Gustavo-e-Leandro\_TCC}}. 2026.
+Reposit{\'o}rio GitHub.
+Dispon{\'\i}vel em: \url{https://github.com/gustavofbs/Gustavo-e-Leandro\_TCC}.
+  Acesso em: 17 nov. 2026.}
+
 \bibitem[Spijkman et al. 2025]{spijkman2025}
 \abntrefinfo{Spijkman et al.}{SPIJKMAN et al.}{2025}
 {SPIJKMAN, T. et al. {LLM}-assisted requirements engineering in agile {MDD}:
   industry insights and validation. In:  \emph{IEEE 33rd International
   Requirements Engineering Conference (RE)}. [S.l.]: IEEE, 2025. p. 366--376.}
+
+\bibitem[Thakur et al. 2025]{thakur2025}
+\abntrefinfo{Thakur et al.}{THAKUR et al.}{2025}
+{THAKUR, A.~S. et al. Judging the judges: evaluating alignment and
+  vulnerabilities in {LLMs}-as-judges. In:  \emph{Proceedings of the Fourth
+  Workshop on Generation, Evaluation and Metrics ({GEM}$^2$)}. [S.l.]:
+  Association for Computational Linguistics, 2025. p. 404--430.}
+
+\bibitem[Vaswani et al. 2017]{vaswani2017}
+\abntrefinfo{Vaswani et al.}{VASWANI et al.}{2017}
+{VASWANI, A. et al. Attention is all you need. In:  \emph{31st Conference on
+  Neural Information Processing Systems (NIPS 2017)}. Long Beach: [s.n.], 2017.
+  Disponível em: arXiv:1706.03762v7.}
 
 \bibitem[Wang et al. 2025]{wang2025}
 \abntrefinfo{Wang et al.}{WANG et al.}{2025}
@@ -207,6 +299,12 @@ Dispon{\'\i}vel em: \url{https://dannorth.net/blog/introducing-bdd/}. Acesso
    \emph{16th International Conference on Software Business (ICSOB 2025)}.
   Stuttgart: Springer, 2026.  (Lecture Notes in Business Information
   Processing, v.~574), p. 212--229.}
+
+\bibitem[Wei et al. 2022]{wei2022}
+\abntrefinfo{Wei et al.}{WEI et al.}{2022}
+{WEI, J. et al. Chain-of-thought prompting elicits reasoning in large language
+  models. In:  \emph{36th Conference on Neural Information Processing Systems
+  (NeurIPS 2022)}. [S.l.: s.n.], 2022. Disponível em: arXiv:2201.11903v6.}
 
 \bibitem[Wohlin et al. 2000]{wohlin2000}
 \abntrefinfo{Wohlin et al.}{WOHLIN et al.}{2000}

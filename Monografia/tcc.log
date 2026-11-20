@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.2)  17 NOV 2026 00:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.9.2)  20 NOV 2026 14:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1065,19 +1065,19 @@ Overfull \hbox (3.65402pt too wide) in paragraph at lines 8--10
 ]) (editaveis/abreviaturas.tex [7
 
 
-]) (fixos/indiceAutomatico.tex (tcc.toc
+] [8]) (fixos/indiceAutomatico.tex (tcc.toc
 LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 29.
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 26.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <12> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 35.
- [8
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 28.
+ [9
 
-]) [9]) (editaveis/introducao.tex
+]) [10]) (editaveis/introducao.tex
 Cap\'{\i }tulo 1.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10
+ [11
 
 
 ]
@@ -1085,8 +1085,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Package babel Info: 'brazil' activates 'portuges' shorthands.
 (babel)             Reported on input line 34.
- [11]
-<figuras/gqm.png, id=321, 473.77pt x 162.6075pt>
+ [12]
+<figuras/gqm.png, id=332, 473.77pt x 162.6075pt>
 File: figuras/gqm.png Graphic file (type png)
 <use figuras/gqm.png>
 Package pdftex.def Info: figuras/gqm.png  used on input line 39.
@@ -1096,7 +1096,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 Underfull \vbox (badness 6910) has occurred while \output is active []
 
- [12
+ [13
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1110,13 +1110,13 @@ l.72
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 78.
  (C:\Users\artur\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [13{C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
-<figuras/fluxo-atividades.jpg, id=355, 770.88pt x 328.97906pt>
+) [14{C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+<figuras/fluxo-atividades.jpg, id=364, 770.88pt x 328.97906pt>
 File: figuras/fluxo-atividades.jpg Graphic file (type jpg)
 <use figuras/fluxo-atividades.jpg>
 Package pdftex.def Info: figuras/fluxo-atividades.jpg  used on input line 108.
 (pdftex.def)             Requested size: 455.0pt x 194.17125pt.
-<figuras/cronograma-etapa1.png, id=356, 1111.15125pt x 480.29437pt>
+<figuras/cronograma-etapa1.png, id=365, 1111.15125pt x 480.29437pt>
 File: figuras/cronograma-etapa1.png Graphic file (type png)
 <use figuras/cronograma-etapa1.png>
 Package pdftex.def Info: figuras/cronograma-etapa1.png  used on input line 116.
@@ -1124,30 +1124,38 @@ Package pdftex.def Info: figuras/cronograma-etapa1.png  used on input line 116.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14
+ [15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.119 
-       <./figuras/fluxo-atividades.jpg>] [15
+       <./figuras/fluxo-atividades.jpg>] [16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.127   \item \textbf
-                     {Escrita da monografia:} redaÃ§Ã£o deste documento, con... <./figuras/cronograma-etapa1.png>]) (editaveis/referencial.tex [16]
+                     {Escrita da monografia:} redaÃ§Ã£o deste documento, con... <./figuras/cronograma-etapa1.png>]) (editaveis/referencial.tex [17]
 Cap\'{\i }tulo 2.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 44.
-) (editaveis/revisao.tex [17
+[18
 
-]
-Cap\'{\i }tulo 3.
+] [19] [20] [21] [22]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 95.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 102.
+ (C:\Users\artur\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [23]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 37.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 118.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24] [25] [26{C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [27]) (editaveis/revisao.tex [28]
+Cap\'{\i }tulo 3.
 
 Underfull \vbox (badness 3557) has occurred while \output is active []
 
- [18
+ [29
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.2}) has been already used, duplicate ignored
@@ -1159,12 +1167,12 @@ Overfull \hbox (0.9511pt too wide) in paragraph at lines 42--43
 \T1/lmr/m/n/12 CHAR-TERS[][], [][]2007[][][]), de-ri-vada do PICO (\T1/lmr/m/it/12 Po-pu-la-tion, In-ter-ven-tion, Com-pa-ri-son, Outcome\T1/lmr/m/n/12 ),
  []
 
-<figuras/estrategia-busca-pico.png, id=409, 526.96875pt x 363.3575pt>
+<figuras/estrategia-busca-pico.png, id=695, 526.96875pt x 363.3575pt>
 File: figuras/estrategia-busca-pico.png Graphic file (type png)
 <use figuras/estrategia-busca-pico.png>
 Package pdftex.def Info: figuras/estrategia-busca-pico.png  used on input line 48.
 (pdftex.def)             Requested size: 273.00278pt x 188.24838pt.
-[19
+[30
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -1199,94 +1207,117 @@ Underfull \hbox (badness 1931) in paragraph at lines 66--66
 \T1/lmr/m/n/10.95 2022, na in-dús-tria ou na
  []
 
-[20
+[31
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.75 \begin{center}
-                   {C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
+                   ]
 Underfull \vbox (badness 4569) has occurred while \output is active []
 
- [21
+ [32
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.137 \end{table}
-                 ] [22
+                 ] [33
 pdfTeX warning (ext4): destination with the same identifier (name{table.3.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.149 
       ]
-editaveis/revisao.tex:191: ignored error: Infinite glue shrinkage found in box being split [23]
-<figuras/processo-selecao.png, id=518, 237.88875pt x 492.84125pt>
+editaveis/revisao.tex:190: ignored error: Infinite glue shrinkage found in box being split [34]
+<figuras/processo-selecao.png, id=804, 237.88875pt x 492.84125pt>
 File: figuras/processo-selecao.png Graphic file (type png)
 <use figuras/processo-selecao.png>
-Package pdftex.def Info: figuras/processo-selecao.png  used on input line 200.
+Package pdftex.def Info: figuras/processo-selecao.png  used on input line 199.
 (pdftex.def)             Requested size: 187.96997pt x 389.40216pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.216 
-       <./figuras/processo-selecao.png>]
-<figuras/estudos-por-ano.png, id=542, 1927.2pt x 903.375pt>
-File: figuras/estudos-por-ano.png Graphic file (type png)
-<use figuras/estudos-por-ano.png>
-Package pdftex.def Info: figuras/estudos-por-ano.png  used on input line 221.
-(pdftex.def)             Requested size: 318.49861pt x 149.28477pt.
- [26
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.234 
-       <./figuras/estudos-por-ano.png (PNG copy)>] [27] [28] [29]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 271.
- (C:\Users\artur\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [30]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [33]
-Underfull \vbox (badness 1681) has occurred while \output is active []
-
- [34]) (editaveis/planejamento.tex [35]
-Cap\'{\i }tulo 4.
-) (editaveis/conclusao.tex
+ [35]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [36
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.215 
+       <./figuras/processo-selecao.png>]
+<figuras/estudos-por-ano.png, id=828, 1927.2pt x 903.375pt>
+File: figuras/estudos-por-ano.png Graphic file (type png)
+<use figuras/estudos-por-ano.png>
+Package pdftex.def Info: figuras/estudos-por-ano.png  used on input line 220.
+(pdftex.def)             Requested size: 318.49861pt x 149.28477pt.
+ [37
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.233 
+       <./figuras/estudos-por-ano.png (PNG copy)>] [38] [39] [40] [41]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-]
-Overfull \vbox (27.80295pt too high) has occurred while \output is active []
+ [42]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [37]
+ [43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [44]
+Underfull \vbox (badness 1681) has occurred while \output is active []
+
+ [45]) (editaveis/planejamento.tex [46]
+Cap\'{\i }tulo 4.
+[47
+
+] [48]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [49] [50] [51]
+Overfull \hbox (29.48412pt too wide) detected at line 126
+\OML/lmm/m/it/12 d[] \OT1/lmr/m/n/12 = [][] \OMS/lmsy/m/n/12 ^^@ [][] \OT1/lmr/m/n/12 e \OML/lmm/m/it/12 d[] \OT1/lmr/m/n/12 = [][] \OMS/lmsy/m/n/12 ^^@ [][]
+ []
+
+[52] [53]
+Overfull \hbox (77.06282pt too wide) in paragraph at lines 182--193
+ [][] 
+ []
+
+[54
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.209 
+      ] [55]
+Overfull \hbox (2.15817pt too wide) in paragraph at lines 245--246
+[]\T1/lmr/m/n/12 Transcrição dos cri-té-rios de acei-ta-ção do Me-a-su-re-Soft-Gram, des-cri-tos em \T1/lmr/m/it/12 Given-
+ []
+
+[56] [57] [58] [59] [60]) (editaveis/conclusao.tex [61]
 Cap\'{\i }tulo 5.
+<figuras/cronograma-etapa2.png, id=1234, 1988.42876pt x 795.97375pt>
+File: figuras/cronograma-etapa2.png Graphic file (type png)
+<use figuras/cronograma-etapa2.png>
+Package pdftex.def Info: figuras/cronograma-etapa2.png  used on input line 26.
+(pdftex.def)             Requested size: 455.0pt x 182.1349pt.
 ) (tcc.bbl (tcc.brf)
 \tf@brf=\write6
 \openout6 = `tcc.brf'.
 
- [38
+ [62
 
-]
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.3 ...th{\labelsep}{0pt}\begin{thebibliography}{}
+                                                   <./figuras/cronograma-etapa2.png (PNG copy)>]
 bibitemlist
-[39
+[63
 
-] [40] [41])
+] [64] [65] [66])
 No file tcc.ind.
-[42]
+[67]
 \tf@lof=\write7
 \openout7 = `tcc.lof'.
 
@@ -1304,20 +1335,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 19D3033FAAC69C3438A82EA1165B4635;8926.
+(rerunfilecheck)             Checksum: C4E0C25871A72E116A15208CFCF01617;15172.
  ) 
 Here is how much of TeX's memory you used:
- 29403 strings out of 467871
- 540299 string characters out of 5418377
- 987987 words of memory out of 5000000
- 57472 multiletter control sequences out of 15000+600000
- 726885 words of font info for 84 fonts, out of 8000000 for 9000
+ 29659 strings out of 467871
+ 544171 string characters out of 5418377
+ 1001115 words of memory out of 5000000
+ 57649 multiletter control sequences out of 15000+600000
+ 755537 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,12n,111p,1827b,733s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbo10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on tcc.pdf (43 pages, 1391269 bytes).
+ 104i,13n,111p,1827b,735s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbo10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso12.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/artur/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on tcc.pdf (68 pages, 2708365 bytes).
 PDF statistics:
- 1263 PDF objects out of 1440 (max. 8388607)
- 180 named destinations out of 1000 (max. 500000)
- 620 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1807 PDF objects out of 2073 (max. 8388607)
+ 241 named destinations out of 1000 (max. 500000)
+ 633 words of extra memory for PDF output out of 10000 (max. 10000000)
 
