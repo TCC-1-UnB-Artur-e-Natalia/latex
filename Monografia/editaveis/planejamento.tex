@@ -1,4 +1,3 @@
-% Estrutura baseada em Wohlin et al. (escopo e planejamento do experimento).
 \chapter[Planejamento do Experimento]{Planejamento do Experimento}
 \label{cap:planejamento}
 
@@ -84,7 +83,7 @@ O \textit{pipeline} será de implementação própria, baseado na arquitetura RA
 
 A parte da recuperação apresentará dois módulos: a recuperação textual (T-RAG), que irá fornecer os cinco trechos mais relevantes da documentação por ICRALM, e a recuperação visual (V-RAG), que irá extrair as capturas de tela da interface ligadas por DSE \cite{wang2025}. No tratamento com RAG, o campo de contexto do template será preenchido com as informações e com as imagens recuperadas. No tratamento sem RAG, este campo ficará vazio, enquanto os outros elementos do template não serão alterados.
 
-Os dois tratamentos irão utilizar o mesmo modelo de linguagem para a geração (e.g., Gemini) \cite{wang2025}, o mesmo template de prompt e os mesmos parâmetros de geração com temperatura zero. Dessa forma, a única diferença entre os tratamentos será o conteúdo do campo de contexto.
+Os dois tratamentos irão utilizar o mesmo modelo de linguagem para a geração (Gemini) \cite{wang2025}, o mesmo template de prompt e os mesmos parâmetros de geração com temperatura zero. Dessa forma, a única diferença entre os tratamentos será o conteúdo do campo de contexto.
 
 O tratamento sem RAG será idêntico ao cenário w/o RAG de \citeonline{wang2025}, onde o template é mantido, mas o contexto de fundo é removido.
 
@@ -114,12 +113,12 @@ A similaridade semântica entre os critérios gerados e os critérios do modelo 
 As variáveis controladas são os fatores que se mantiveram constantes entre os dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}) para que o efeito da incorporação das informações de domínio fosse isolado e não houvesse vieses no experimento.
 Estas variáveis são:
 \begin{itemize}
-    \item \textbf{Modelo de LLM gerador e versão}: o mesmo modelo de linguagem gerador (por exemplo, Gemini 2 Flash) é empregado para as duas configurações de uma história de usuário.
+    \item \textbf{Modelo de LLM gerador e versão}: o mesmo modelo de linguagem gerador (por exemplo, Gemini) é empregado para as duas configurações de uma história de usuário.
     \item \textbf{Parâmetros de geração}: os hiperparâmetros de inferência são fixados em ambos os tratamentos. Mais precisamente, a temperatura é igual a zero ($temperatura = 0$) e $top\_p = 0.1$. Com isso, a aleatoriedade e variabilidade das respostas são reduzidas, aumentando a reprodutibilidade dos resultados (mesmo não garantindo que as saídas serão as mesmas entre as execuções).
     \item \textbf{Estrutura do template de prompt}: a mesma estrutura de prompt padronizada (adaptada da técnica \textit{Urial}) é utilizada. O papel da IA, as instruções do formato Gherkin e o espaço para a história de usuário são idênticos.
     \item \textbf{Corpus da base de conhecimento}: a mesma base de documentos textuais e visuais do projeto é usada para indexação e busca.
     \item \textbf{Quantidade de trechos recuperados}: cinco trechos da documentação e telas são retornados pelo módulo de recuperação no tratamento Com RAG.
-    \item \textbf{Comitê e avaliação (\textit{LLM-as-a-Judge})}: o mesmo painel de LLMs juízas (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash) é usado. Ele é submetido ao mesmo algoritmo de julgamento ponto a ponto e à exigência de consenso unânime para classificar as saídas de ambos os tratamentos.
+    \item \textbf{Comitê e avaliação (\textit{LLM-as-a-Judge})}: o mesmo painel de LLMs juízas (ChatGPT, DeepSeek e Gemini) é usado. Ele é submetido ao mesmo algoritmo de julgamento ponto a ponto e à exigência de consenso unânime para classificar as saídas de ambos os tratamentos.
 \end{itemize}
 
 \subsection{Formulação das hipóteses}
@@ -224,7 +223,7 @@ A experimentação possui como instrumentos de trabalho uma série de recursos e
 \begin{itemize}
     \item \textbf{Gabarito de Referência e Base de Conhecimento}: É composto por um conjunto de histórias de usuário (\textit{User Stories}) reais do projeto, com seus respectivos critérios de aceitação em formato Gherkin (\textit{ground truth}), que no caso do MeasureSoftGram são transcritos dos critérios originais descritos em \textit{Given-When-Then}. Para a avaliação, os cenários em Gherkin do gabarito serão divididos em uma lista de objetivos de teste atômicos ($T_i$), mantendo a semântica condicional (\textit{Given-When-Then}). A base de conhecimento é composta por documentos textuais e capturas de tela da interface do usuário (\textit{UI}) indexados para recuperação de domínio;
 
-    \item \textbf{Ferramentas de Software e Modelos}: Uma infraestrutura construída na linguagem Python (versão 3.12) para gerenciar o pipeline. Para a geração, usa-se a API da LLM geradora (\textit{e.g.}, Gemini 2 Flash). Para a avaliação (\textit{LLM-as-a-Judge}), usa-se as APIs dos três modelos que compõem o comitê de juízes (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash) \cite{wang2025};
+    \item \textbf{Ferramentas de Software e Modelos}: Uma infraestrutura construída na linguagem Python (versão 3.12) para gerenciar o pipeline. Para a geração, usa-se a API da LLM geradora (Gemini). Para a avaliação (\textit{LLM-as-a-Judge}), usa-se as APIs dos três modelos que compõem o comitê de juízes (ChatGPT, DeepSeek e Gemini) \cite{wang2025};
 
     \item \textbf{Templates de Prompt}: O template de prompt é padronizado e fixo, baseado na estrutura \textit{Urial} \cite{wang2025}. Ele define o papel da IA, as regras de sintaxe Gherkin e tem lacunas para incluir a história de usuário (\texttt{\{INPUT\_USER\_STORY\}}) e o contexto recuperado (\texttt{\{INPUT\_BACKGROUND\}}). No tratamento Sem RAG, o espaço para contexto fica em branco, enquanto no tratamento Com RAG ele é preenchido com os cinco trechos recuperados;
 
@@ -262,7 +261,7 @@ O método de utilização dos instrumentos é o plano de execução passo a pass
 
     \item \textbf{Execução dos Tratamentos e Geração dos Gherkins}:
     \begin{itemize}
-        \item \textit{Tratamento Com RAG}: Para a história de usuário em execução, o módulo de recuperação extrai os cinco fragmentos textuais e visuais mais significativos da base de conhecimento. O contexto obtido é colocado no \textit{template} de \textit{prompt} (com base no modelo \textit{Urial}), e a solicitação é feita à LLM geradora (\textit{e.g.}, Gemini 2 Flash) com a temperatura em 0;
+        \item \textit{Tratamento Com RAG}: Para a história de usuário em execução, o módulo de recuperação extrai os cinco fragmentos textuais e visuais mais significativos da base de conhecimento. O contexto obtido é colocado no \textit{template} de \textit{prompt} (com base no modelo \textit{Urial}), e a solicitação é feita à LLM geradora (\textit{e.g.}, Gemini) com a temperatura em 0;
         \item \textit{Tratamento Sem RAG}: O mesmo \textit{template} de \textit{prompt} e história de usuário são enviados à mesma LLM geradora com os mesmos hiperparâmetros, mas o campo de contexto está em branco;
         \item Gravação das respostas com os cenários em Gherkin criados para ambos os tratamentos em arquivos JSON marcados pelo ID da história e tratamento.
     \end{itemize}
@@ -275,7 +274,7 @@ O método de utilização dos instrumentos é o plano de execução passo a pass
 
     \item \textbf{Avaliação Automática por meio do Comitê de LLMs Juízas (\textit{LLM-as-a-Judge})}:
     \begin{itemize}
-        \item Para cada objetivo atômico $T_i$ de cada história de usuário, os \textit{scripts} enviam o objetivo e a resposta completa criada pelo tratamento ao painel de juízes (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash);
+        \item Para cada objetivo atômico $T_i$ de cada história de usuário, os \textit{scripts} enviam o objetivo e a resposta completa criada pelo tratamento ao painel de juízes (ChatGPT, DeepSeek e Gemini);
         \item Obtenção dos pareceres individuais de cada juiz e uso do critério de consenso: as classificações \textit{Full Coverage} e \textit{Not Covered} são dadas somente quando todos os juízes concordam, e se houver discordância, o objetivo é classificado como \textit{Partial Coverage};
         \item Associação do resultado para as variáveis binárias de atendimento ($Hit$ e $Correctness$) por objetivo atômico.
     \end{itemize}
@@ -301,18 +300,15 @@ A validade de construto examina se as métricas escolhidas representam adequadam
 \begin{itemize}
     \item \textbf{Ameaça}: As métricas estatísticas de superfície mais comuns (como ROUGE, BLEU e Levenshtein) não podem capturar o significado de regras de negócio em formato Gherkin. Por outro lado, o uso de juízes baseados em LLMs pode introduzir viés de alinhamento, sensibilidade ao \textit{prompt} ou inconsistência de avaliação.
 
-    \item \textbf{Mitigação}: Uma abordagem complementar de métricas é utilizada. O processo de avaliação \textit{LLM-as-a-Judge} é conduzido sobre objetivos de teste atômicos ($T_i$) obtidos a partir da desconstrução prévia do gabarito. Para mitigar os vieses individuais dos modelos, é empregado um comitê diversificado de três LLMs juízas (GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash) sujeitas a um critério de \textbf{consenso unânime} para as classificações \textit{Full Coverage} e \textit{Not Covered}, além do cálculo da similaridade semântica por \textit{embeddings}, que é apresentado de forma complementar. Como a falta de unanimidade resulta em \textit{Partial Coverage}, a métrica \textit{Acc@Hit} tende a ser mais permissiva que a \textit{Acc@Cor}, o que é levado em conta na interpretação dos resultados.
-    % TODO: decidir se haverá validação do comitê de juízes por avaliação humana de uma subamostra; se não, declarar a ausência como limitação.
+    \item \textbf{Mitigação}: Uma abordagem complementar de métricas é utilizada. O processo de avaliação \textit{LLM-as-a-Judge} é conduzido sobre objetivos de teste atômicos ($T_i$) obtidos a partir da desconstrução prévia do gabarito. Para mitigar os vieses individuais dos modelos, é empregado um comitê diversificado de três LLMs juízas (ChatGPT, DeepSeek e Gemini) sujeitas a um critério de \textbf{consenso unânime} para as classificações \textit{Full Coverage} e \textit{Not Covered}, além do cálculo da similaridade semântica por \textit{embeddings}, que é apresentado de forma complementar. Como a falta de unanimidade resulta em \textit{Partial Coverage}, a métrica \textit{Acc@Hit} tende a ser mais permissiva que a \textit{Acc@Cor}, o que é levado em conta na interpretação dos resultados.
 
     \item \textbf{Ameaça}: Viés de preferência por texto próprio, já que o modelo gerador pode coincidir com um dos modelos do comitê de juízes (como o Gemini).
-    % TODO: definir o modelo gerador (hoje aparece como e.g.).
 
     \item \textbf{Mitigação}: O comitê é formado por três juízes, nenhum dos quais decide sozinho. Além disso, o mesmo gerador é utilizado nos dois tratamentos, de modo que um eventual viés tende a afetar de forma semelhante as gerações Com RAG e Sem RAG, comprometendo mais o nível absoluto de acurácia do que a diferença pareada entre os tratamentos, que é o foco do experimento.
 
     \item \textbf{Ameaça}: \textit{Acc@Hit} e \textit{Acc@Cor} avaliam a cobertura dos objetivos atômicos do gabarito. Os critérios gerados não mapeados a nenhum desses objetivos, incluindo critérios espúrios criados pelo modelo, não mudam os valores das métricas. Da mesma forma, os critérios válidos não existentes no gabarito não são considerados acertos, pois o gabarito não possui todos os possíveis critérios válidos.
 
     \item \textbf{Mitigação}: Esta limitação é assumida e levada em conta na interpretação dos resultados, que são relativos à cobertura do gabarito, não à inexistência de critérios espúrios. A análise qualitativa complementar (Seção~\ref{sec:analise-complementar}) analisa os tipos de falha, incluindo alucinações.
-    % TODO: considerar amostrar a análise qualitativa de alucinações em todas as histórias, não só nas de baixa pontuação.
 
     \item \textbf{Ameaça}: Alguns do gabarito são criados pelos autores, visto que os critérios do MeasureSoftGram serão transformados para a sintaxe Gherkin, enquanto os cenários do CAPJu foram criados por outros, o que pode trazer vieses de redação ou omissões.
 
