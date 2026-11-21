@@ -207,7 +207,6 @@ Após a leitura dos artigos selecionados, os dados foram extraídos por meio do 
 
 As subseções a seguir apresentam os resultados obtidos para as questões secundárias de pesquisa definidas nesta revisão.
 
-% ---------------------------------------------------------------------------
 \subsection{QP1 -- Quantos estudos foram publicados por ano do total selecionado?}
 \label{sec:qp1}
 
@@ -223,7 +222,6 @@ A Figura~\ref{fig:por-ano} apresenta a distribuição dos 25 estudos incluídos 
 
 O valor de 2026 considera apenas as publicações disponíveis até a execução da busca, em 23/09/2026. Por isso, a diferença em relação a 2025 não indica queda no interesse pelo tema. A distribuição também é coerente com o crescimento observado por \citeonline{cheng2026} na engenharia de requisitos, em que o volume anual de artigos sobre inteligência artificial (IA) generativa passou de 4 em 2022 para 113 em 2024. Na contagem, relatos do mesmo estudo foram considerados uma única vez e, nos artigos de conferência, adotou-se o ano do evento.
 
-% ---------------------------------------------------------------------------
 \subsection{QP2 -- Em que veículos os estudos foram publicados e em que contexto foram conduzidos?}
 \label{sec:qp2}
 
@@ -235,7 +233,6 @@ Com esse critério, 14 estudos (56\%) foram conduzidos em contexto acadêmico, 6
 
 Assim, apenas 5 estudos (20\%) trazem evidências obtidas com dados e profissionais da indústria, enquanto 8 (32\%) não tiveram avaliação humana formal. A maior parte das evidências ainda vem de dados públicos ou criados para o estudo, o que limita a aplicabilidade prática dos resultados na indústria.
 
-% ---------------------------------------------------------------------------
 \subsection{QP3 -- Que tipos de estudo empírico são adotados?}
 \label{sec:qp3}
 
@@ -245,7 +242,6 @@ Quando se olha apenas para o que os autores declaram, o experimento é o tipo ma
 
 Os motivos variam. A maior parte, 14 estudos (56\%), compara técnicas, modelos ou \textit{prompts}, mas nenhum deles formula H0 e H1 no planejamento, apenas 4 aplicam teste estatístico e só 1 sorteia a distribuição dos participantes entre os tratamentos. O estudo que mais se aproxima de um experimento é um quase-experimento declarado, que compara especificações geradas por dois LLMs e testa estatisticamente a hipótese nula, mas a apresenta apenas na análise dos resultados, sem formulá-la no planejamento nem definir a hipótese alternativa \cite{hassani2026}. Outros 4 (16\%) avaliam as saídas por questionário, mas com pessoas convidadas por conveniência e sem uma população definida, o que não caracteriza uma \textit{survey}. Há ainda 2 estudos (8\%) que se dizem estudos de caso sem acompanhar um projeto em andamento \cite{wang2025,zyberaj2026}, e 3 (12\%) não medem os resultados com nenhum instrumento definido, como métrica, questionário ou gabarito, limitando-se a exemplos ilustrativos ou a \textit{feedback} informal.
 
-% ---------------------------------------------------------------------------
 \subsection{QP4 -- Quais modelos de linguagem são mais utilizados na geração de critérios de aceitação?}
 \label{sec:qp4}
 
@@ -257,7 +253,6 @@ Sete estudos (29\%) comparam modelos de fornecedores diferentes, o que permite o
 
 Quanto à hospedagem, 11 estudos (46\%) não informam onde o modelo foi executado, embora a maioria deles use modelos proprietários, que costumam ser acessados em nuvem pública. Entre os que informam, 9 (38\%) usam nuvem pública, 2 (8\%) usam uma nuvem privada dentro da empresa \cite{baker2026,ferreira2025} e 2 (8\%) combinam execução local, para os modelos abertos, com nuvem pública, para os proprietários \cite{li2024,huang2026}. A hospedagem importa porque, quando os dados são de uma empresa, enviar histórias e documentos a um serviço externo levanta questões de privacidade, uma das barreiras de adoção apontadas na Seção~\ref{sec:qp9}. Dos 5 estudos conduzidos na indústria, apenas os 2 que usam nuvem privada mantêm os dados no ambiente da empresa, e os outros 3 usam nuvem pública ou não informam onde o modelo roda.
 
-% ---------------------------------------------------------------------------
 \subsection{QP5 -- Quais técnicas são mais empregadas para apoiar a geração?}
 \label{sec:qp5}
 
@@ -271,7 +266,6 @@ O formato de saída, registrado no formulário de extração, mostra como os CA 
 
 Assim, a geração de CA ainda se apoia principalmente na forma de escrever o \textit{prompt}, e recursos como agentes, recuperação de contexto e entrada multimodal aparecem em uma minoria dos estudos. Além disso, poucos estudos comparam estratégias entre si, o que deixa em aberto qual delas produz CA melhores.
 
-% ---------------------------------------------------------------------------
 \subsection{QP6 -- Quais artefatos são fornecidos como entrada?}
 \label{sec:qp6}
 
@@ -285,7 +279,6 @@ O que diferencia esses 13 estudos é a forma como o contexto chega ao modelo. Em
 
 Assim, na maioria dos casos, os CA ainda são gerados apenas a partir do texto da história ou do requisito, e o uso de contexto do sistema, sobretudo visual, é pouco explorado.
 
-% ---------------------------------------------------------------------------
 \subsection{QP7 -- Quais mecanismos automáticos de verificação ou refinamento dos critérios gerados?}
 \label{sec:qp7}
 
@@ -295,7 +288,6 @@ Com esse critério, apenas 8 estudos (33\%) têm algum mecanismo automático que
 
 Entre os 8 estudos com mecanismo automático, o mais comum é usar outro LLM para revisar ou melhorar os critérios. Isso aparece de formas diferentes. Em um estudo, agentes revisores com um modelo diferente do gerador acrescentam os CA que faltam \cite{rotar2025}. Em outro, papéis simulados de uma equipe ágil revisam e complementam os critérios \cite{li2024}. Há também um estudo em que um agente no papel de analista de requisitos examina a história e seus CA, verificando clareza, completude e consistência e garantindo que os CA sejam mensuráveis, enquanto outro agente, no papel de \textit{Product Owner}, confere a versão melhorada com uma lista de fatos da história original antes de aprová-la \cite{zhang2024}. Em outro, um revisor embutido no próprio \textit{prompt} confere a estrutura, a testabilidade e a completude de cada história e pede uma nova geração quando a rejeita, por exemplo, por condições de aceitação vagas \cite{weerakoon2026}. Dois estudos dão notas aos CA. Um deles sugere acréscimos, que só entram se a equipe os adotar \cite{baker2026}, e o outro usa modelos de recompensa para pontuar os critérios e reescrever os de menor nota \cite{wang2025}. Outros dois filtram os CA, removendo os redundantes por similaridade de cosseno \cite{li2024} ou descartando os triviais \cite{schwedt2025}. Por fim, um estudo apenas confere a estrutura do \textit{Gherkin} gerado, sem corrigir o que encontra \cite{huang2026}.
 
-% ---------------------------------------------------------------------------
 \subsection{QP8 -- Quais métricas de avaliação são mais comumente usadas para avaliar os critérios de aceitação gerados?}
 \label{sec:qp8}
 
@@ -311,7 +303,6 @@ O quarto tipo, o mais frequente, com 8 estudos (33\%), depende de pessoas. Algun
 
 Em síntese, o julgamento humano é o tipo de métrica mais usado, seguido da verificação da sintaxe do \textit{Gherkin}, e poucos estudos medem a acurácia dos CA contra um gabarito.
 
-% ---------------------------------------------------------------------------
 \subsection{QP9 -- Quais limitações e desafios são mais relatados nos estudos sobre geração de critérios de aceitação com LLMs?}
 \label{sec:qp9}
 
