@@ -16,4 +16,17 @@
 *.toc
 *.dvi
 *.ps
-Monografia/tcc.pdf
+
+# PDFs gerados
+*.pdf
+
+# latexmk
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.aux
+*.blg
+*.aux
+*.brf
+*.log
+
