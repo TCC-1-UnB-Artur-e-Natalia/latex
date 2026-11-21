@@ -20,13 +20,8 @@
 # PDFs gerados
 *.pdf
 
-# latexmk
-*.fdb_latexmk
-*.fls
-*.synctex.gz
-*.aux
-*.blg
-*.aux
-*.brf
-*.log
-
+# macOS
+.DS_Store
+Monografia/tcc.aux
+Monografia/tcc.blg
+Monografia/tcc.log
