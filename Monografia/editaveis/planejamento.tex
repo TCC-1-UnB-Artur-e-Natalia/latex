@@ -6,18 +6,21 @@
 
 \subsection{Objetivo}
 
-De acordo com o levantamento bibliográfico efetuado, o RAG é bastante usado para elaborar histórias de usuário e critérios de aceitação \cite{rawson2025, rawson2025framework, rotar2025}, mas são escassas as pesquisas que confrontam a geração com e sem RAG \cite{wang2025}.
+De acordo com o levantamento bibliográfico (Capítulo~\ref{cap:revisao}), o RAG tem sido utilizado para elaborar histórias de usuário e critérios de aceitação \cite{rawson2025, rawson2025framework, rotar2025}. Entretanto, na revisão da literatura realizada nesta pesquisa, observou-se que poucos estudos comparam a geração com e sem RAG, como o de \citeonline{wang2025}, cujos critérios seguem a estrutura \textit{Dado-Quando-Então}, que os autores chamam de \textit{Gherkin}.
+
+\todo[inline, color=pink]{Olhem com cuidado em todo o documento para garantir que a tradução da questão do inglês para o português esteja correta em relação ao formato Dado-Quando-Então.}
+
 
 Sendo assim, o objetivo deste trabalho é testar de forma empírica se existe diferença estatisticamente significativa entre a acurácia dos critérios de aceitação em formato Gherkin gerados com e sem RAG.
 
 \subsection{Questão de pesquisa}
 \label{sec:quest-de-pesq}
-Para obter uma resposta à questão de pesquisa principal, que foi apresentada na Seção~\ref{sec:questao-pesquisa} (\textit{Como os grandes modelos de linguagem têm contribuído na geração
-automática de critérios de aceitação em formato Gherkin a partir da
-documentação de histórias de usuário, e com que nível de acurácia?}), foi utilizada a metodologia GQM \cite{basili1994}, que permitiu dividir a questão de pesquisa principal em questões de pesquisa mais específicas e, para cada uma delas, definir métricas que podem ajudar na avaliação.
+Para obter uma resposta à questão de pesquisa principal, que foi apresentada na Seção~\ref{sec:questao-pesquisa} (\textit{Como os LLMs podem apoiar a geração automática de critérios de aceitação em formato Gherkin a partir da documentação de histórias de usuário?}), foi utilizada a abordagem GQM \cite{basili1994}, que, a partir do objetivo do trabalho (Tabela~\ref{tab:gqm}), permitiu desdobrar a questão principal em questões de pesquisa mais específicas e, para cada uma delas, definir métricas que podem ajudar na avaliação.
+
+Portanto, a questão principal tem duas frentes. A revisão estruturada da literatura (Capítulo~\ref{cap:revisao}) caracteriza como os LLMs têm sido usados para apoiar a geração de critérios de aceitação. O quasi-experimento, por sua vez, avalia uma forma específica de apoio, o fornecimento ao modelo do contexto do próprio projeto por meio de RAG, medindo a acurácia dos critérios gerados com e sem esse contexto. A questão específica a seguir é, portanto, uma derivação da questão principal: 
 
 \begin{itemize}
-    \item \textbf{Questão Específica 1}: 
+    \item \textbf{Questão Específica}: 
     Existe diferença entre a acurácia dos critérios de aceitação em formato Gherkin gerados com \textit{RAG} e aqueles gerados sem RAG?
 
     Para medir a acurácia, os critérios de aceitação do gabarito serão divididos em unidades menores, chamadas \textit{objetivos de teste atômicos}, cada uma delas com o seu próprio resultado que pode ser verificado.
@@ -28,13 +31,28 @@ documentação de histórias de usuário, e com que nível de acurácia?}), foi 
     \end{itemize}
 \end{itemize}
 
+
+\todo[inline, color=pink]{"Que gabarito?" O termo aparece aqui pela primeira vez no capítulo.}
+
+\todo[inline, color=pink]{o que são objetivos de teste atômicos?}
+
+\todo[inline, color=pink]{como assim cada uma delas com o seu próprio resultado que pode ser verificado? O que é o resultado?}
+
+\todo[inline, color=pink]{Qual é a regra de atomicidade? isso afeta o denominador das duas métricas. Quem decide, e outra pessoa chegaria à mesma divisão?}
+
+\todo[inline, color=pink]{O que é "parcialmente contemplado"? As Métricas 1.1 e 1.2 usam "parcial" e "totalmente". Cuidado com a confusão dos conceitos de cobertura parcial real com discordância entre juízes. Sugiro criarem um exemplo completo e pequeno: uma história real, o critério do gabarito, a sua divisão em objetivos, um cenário gerado e o veredito de cada juiz, em uma tabela.}
+
+\todo[inline, color=pink]{A definição de acurácia aparece na Seção 4.1.2, antes de gabarito, juízes e níveis de cobertura serem apresentados. Façam um link com as subseções  4.2.1 e 4.2.2}
+
+
+
 \subsection{Trabalhos relacionados}
 
-Este trabalho se fundamenta em dois tipos de estudos: as referências metodológicas, que apresentaram as orientações para o planejamento do experimento, e o estudo de \citeonline{wang2025}, que forneceu a base de referência \textit{ground truth} para a definição dos tratamentos e da validação.
+Este trabalho se fundamenta em dois tipos de estudos: as referências metodológicas, que apresentaram as orientações para o planejamento do experimento, e o estudo de \citeonline{wang2025}, que serviu de modelo para a definição dos tratamentos e da validação.
 
 A referência metodológica utilizada foi o trabalho de \citeonline{wohlin2000}, que propõe uma estrutura para o processo experimental na Engenharia de Software, e que serviu como guia para a escolha do delineamento experimental, a formulação de hipóteses, a escolha de testes estatísticos e a discussão de ameaças à validade. Para a definição da pergunta de pesquisa específica e suas métricas a partir do objetivo proposto, utilizou-se a metodologia GQM \cite{basili1994}.
 
-O trabalho de \citeonline{wang2025} propôs a arquitetura RAGcceptance M2RE para a elaboração de critérios de aceitação, que integra a recuperação de dados textuais e visuais, e que foi validada através de um estudo de ablação sem a utilização de RAG. Esse trabalho serviu como base para a adaptação do  \textit{pipeline} de recuperação e geração, o modelo de \textit{prompt}, a decomposição da base de referência \textit{ground truth} em objetivos atômicos e o comitê de LLMs avaliadores.
+O trabalho de \citeonline{wang2025} propôs a arquitetura RAGcceptance M2RE para a elaboração de critérios de aceitação, que integra a recuperação de dados textuais e visuais, e que foi validada através de um estudo de ablação sem a utilização de RAG. Esse trabalho serviu como base para a adaptação do  \textit{pipeline} de recuperação e geração, o modelo de \textit{prompt}, a decomposição do gabarito \textit{ground truth} em objetivos atômicos e o comitê de LLMs avaliadores.
 
 Diferentemente daquele estudo, em que o contraste entre o uso ou não de RAG faz parte da validação da proposta, aqui o RAG é o único fator experimental. O modelo, \textit{prompt}, parâmetros de geração e base de conhecimento são fixos, e o contraste entre os tratamentos é testado via um teste de hipóteses para amostras pareadas.
 
@@ -71,7 +89,7 @@ O experimento apresenta apenas um fator: \textbf{Uso do RAG para a geração de 
     \item \textbf{Com RAG}: o modelo é fornecido com o mesmo prompt e com a mesma história, acompanhados das informações de domínio recuperadas da base de conhecimento do projeto. 
 \end{enumerate}
 
-O \textit{pipeline} será de implementação própria, baseado na arquitetura RAGcceptance\~M2RE \cite{wang2025}, e será segmentado em duas partes: recuperação e geração. O prompt será elaborado a partir da técnica de \textit{prompting} que apresentou melhor desempenho em \citeonline{wang2025} (a estrutura \textit{Urial}), que consiste em um template fixo com campos para a história de usuário e para o contexto do projeto.
+O \textit{pipeline} será de implementação própria, baseado na arquitetura RAGcceptance~M2RE \cite{wang2025}, e será segmentado em duas partes: recuperação e geração. O prompt será elaborado a partir da técnica de \textit{prompting} que apresentou melhor desempenho em \citeonline{wang2025} (a estrutura \textit{Urial}), que consiste em um template fixo com campos para a história de usuário e para o contexto do projeto.
 
 A parte da recuperação apresentará dois módulos: a recuperação textual (T-RAG), que irá fornecer os cinco trechos mais relevantes da documentação por ICRALM, e a recuperação visual (V-RAG), que irá extrair as capturas de tela da interface ligadas por DSE \cite{wang2025}. No tratamento com RAG, o campo de contexto do template será preenchido com as informações e com as imagens recuperadas. No tratamento sem RAG, este campo ficará vazio, enquanto os outros elementos do template não serão alterados.
 
@@ -85,7 +103,10 @@ O tratamento aplicado é a variável independente, que se relaciona à estratég
 
 \subsubsection*{Variáveis dependentes}
 
-A variável dependente primária é a precisão dos critérios de aceitação gerados em Gherkin, que são medidos com base na cobertura dos objetivos atômicos do modelo de referência (\textit{LLM-as-a-Judge}). Para cada objetivo atômico ($T_i$) extraído do modelo de uma história de usuário, o grupo de LLMs juízes dá o nível de cobertura em \textit{Full Coverage}, \textit{Partial Coverage} ou \textit{Not Covered} \cite{wang2025}. Os níveis \textit{Full Coverage} e \textit{Not Covered} só são dados quando há unanimidade entre os juízes; se não houver unanimidade, o objetivo é classificado como \textit{Partial Coverage}. Com base nessa classificação, são definidos duas métricas de precisão principais, calculadas para cada história de usuário:
+A variável dependente primária é a acurácia dos critérios de aceitação gerados em Gherkin, medida pela cobertura dos objetivos atômicos do gabarito por um comitê de LLMs juízes (\textit{LLM-as-a-Judge}). Para cada objetivo atômico ($T_i$) extraído do gabarito de uma história de usuário, cada juiz classifica a cobertura em \textit{Full Coverage}, \textit{Partial Coverage} ou \textit{Not Covered} \cite{wang2025}. O objetivo conta como atendido ($Hit = 1$) quando todos os juízes indicam ao menos cobertura parcial, e como correto ($Correctness = 1$) quando todos indicam cobertura total \cite{wang2025}. Com base nessa classificação, são definidas duas métricas principais de acurácia, calculadas para cada história de usuário:
+
+\todo[inline, color=pink]{Eu fiz alguns ajustes na escrita do parágrafo acima. Verifiquem. COntudo, ainda há aquele problema dos objetivo atômico do gabarito. Eu não tenho clareza sobre isso.}
+
 \begin{itemize} 
     \item \textbf{Taxa de Cobertura de Atendimento (\textit{Acc@Hit})}: percentual de objetivos atômicos da história de usuário que atingiram pelo menos cobertura parcial ($Hit = 1$); 
     \item \textbf{Taxa de Cobertura de Exatidão (\textit{Acc@Cor})}: percentual de objetivos atômicos da história de usuário que atingiram cobertura total ($Correctness = 1$). 
@@ -99,7 +120,7 @@ Com base nestas métricas, serão obtidas as seguintes estatísticas por tratame
 A similaridade semântica entre os critérios gerados e os critérios do modelo será calculada como medida extra e apresentada de maneira descritiva, de acordo com a Seção~\ref{sec:analise-complementar}.
 
 \subsubsection*{Variáveis controladas}
-As variáveis controladas são os fatores que se mantiveram constantes entre os dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}) para que o efeito da incorporação das informações de domínio fosse isolado e não houvesse vieses no experimento.
+As variáveis controladas são os fatores que se manterão constantes entre os dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}) para que o efeito da incorporação das informações de domínio seja isolado e não haja esse tipo de viés no experimento.
 Estas variáveis são:
 \begin{itemize}
     \item \textbf{Modelo de LLM gerador e versão}: o mesmo modelo de linguagem gerador (por exemplo, Gemini) é empregado para as duas configurações de uma história de usuário.
@@ -154,9 +175,13 @@ como as diferenças nas taxas obtidas com e sem RAG e $\mu_d^{\mathrm{Hit}}$ e $
 
 Se a hipótese nula for rejeitada, o sinal da diferença média indicará qual dos tratamentos obteve maior cobertura. Quando a normalidade das diferenças for rejeitada e o teste de Wilcoxon for utilizado, a hipótese nula será avaliada de forma semelhante, verificando se a distribuição das diferenças é zero.
 
+
 \subsubsection*{Nível de Significância e Testes Estatísticos}
 
-O nível de significância é escolhido em $\alpha = 0,05$ (nível de confiança de 95\%), padrão em Engenharia de Software Experimental \cite{wohlin2000}, para as hipóteses. Se o valor-p (\textit{p-value}) que é obtido através dos testes de hipótese for menor que $\alpha$ ($p < 0,05$), então a hipótese nula que está associada será rejeitada.
+O nível de significância é escolhido em $\alpha = 0{,}05$ (nível de confiança de 95\%), padrão em Engenharia de Software Experimental \cite{wohlin2000}, para as hipóteses. Como duas hipóteses são testadas sobre as mesmas histórias de usuário (\textit{Acc@Hit} e \textit{Acc@Cor}), os valores-p serão ajustados pelo método de Holm, de modo que a probabilidade de rejeitar ao menos uma hipótese nula verdadeira permaneça em $\alpha$. Se o valor-p (\textit{p-value}) ajustado, obtido a partir dos testes de hipótese, for menor que $\alpha$ ($p < 0{,}05$), então a hipótese nula que está associada será rejeitada.
+
+\todo[inline, color=pink]{Bastante atenção com a explicação do ajuste de Holm.}
+
 
 \subsection{Desenho do experimento}
 Com base na tipologia de \citeonline{wohlin2000}, o experimento descrito aqui se enquadra na categoria de \textbf{experimento orientado à tecnologia} (\textit{technology-oriented experiment}). Nesse tipo de pesquisa não há a participação de seres humanos, e o intuito é comparar experimentalmente técnicas, ferramentas ou algoritmos aplicados a artefatos de \textit{software}. No nosso caso, a geração de critérios de aceitação em formato Gherkin a partir de histórias de usuário.
@@ -169,7 +194,7 @@ A Tabela~\ref{tab:pareado-exemplo} dá um exemplo de ordem aleatória de execuç
 \centering
 \caption{Exemplo ilustrativo da ordem aleatória de aplicação dos tratamentos às histórias de usuário (\textit{paired comparison design})}
 \label{tab:pareado-exemplo}
-\begin{tabular}{c|c|c}
+\begin{tabular}{>{\centering\arraybackslash}p{0.40\textwidth}|c|c}
 \hline
 \textbf{Unidade experimental (História de Usuário)} & \textbf{Trat. 1 (Sem RAG)} & \textbf{Trat. 2 (Com RAG)} \\
 \hline
@@ -182,8 +207,13 @@ A Tabela~\ref{tab:pareado-exemplo} dá um exemplo de ordem aleatória de execuç
 \end{tabular}
 
 \vspace{0.3em}
-\small{Legenda: Os valores nas células indicam a ordem de execução do tratamento para a história correspondente. Tratamentos: 1 = Sem RAG (\textit{baseline}), 2 = Com RAG (tratamento proposto).}
+\begin{center}
+    \small{Legenda: em cada linha, 1 indica o tratamento executado primeiro, e 2, o executado em seguida.}
+\end{center}
 \end{table}
+
+
+
 
 \subsection{Teste de normalidade}
 
@@ -255,17 +285,24 @@ O método de utilização dos instrumentos é o plano de execução passo a pass
     \item \textbf{Avaliação Automática por meio do Comitê de LLMs Juízas (\textit{LLM-as-a-Judge})}:
     \begin{itemize}
         \item Para cada objetivo atômico $T_i$ de cada história de usuário, os \textit{scripts} enviam o objetivo e a resposta completa criada pelo tratamento ao painel de juízes (ChatGPT, DeepSeek e Gemini);
-        \item Obtenção dos pareceres individuais de cada juiz e uso do critério de consenso: as classificações \textit{Full Coverage} e \textit{Not Covered} são dadas somente quando todos os juízes concordam, e se houver discordância, o objetivo é classificado como \textit{Partial Coverage};
-        \item Associação do resultado para as variáveis binárias de atendimento ($Hit$ e $Correctness$) por objetivo atômico.
+        \item Obtenção do parecer individual de cada juiz (\textit{Full Coverage}, \textit{Partial Coverage} ou \textit{Not Covered});
+        \item Associação do resultado às variáveis binárias de cada objetivo atômico: $Hit = 1$ quando todos os juízes indicam ao menos cobertura parcial, e $Correctness = 1$ quando todos indicam cobertura total.
     \end{itemize}
 
     \item \textbf{Cálculo das Métricas e Análise Estatística}:
     \begin{itemize}
-        \item Agregação dos dados para calcular as taxas \textit{Acc@Hit} e \textit{Acc@Cor} em nível de caso/história (\textit{Case-level}) e similaridade semântica, assim como a contagem descritiva de objetivos atingidos em nível de ponto (\textit{Point-level});
-        \item Aplicação do teste de normalidade de Shapiro-Wilk nas diferenças pareadas entre os tratamentos;
-        \item Realização do teste de hipóteses pareado em nível de caso (teste $t$ pareado ou teste de Wilcoxon, de acordo com a normalidade das diferenças) ao nível de significância de $\alpha = 0{,}05$, acompanhado pelo cálculo do tamanho do efeito ($d$ de Cohen para o teste $t$ pareado ou $r$ de Rosenthal para o teste de Wilcoxon).
+        \item Agregação dos dados para calcular as taxas \textit{Acc@Hit} e \textit{Acc@Cor} em nível de caso/história (\textit{Case-level}) e, de forma complementar, a similaridade semântica, assim como a contagem descritiva de objetivos cobertos em nível de ponto (\textit{Point-level});
+        \item Aplicação do teste de normalidade de Shapiro-Wilk nas diferenças pareadas entre os tratamentos, para cada métrica;
+        \item Realização do teste de hipóteses pareado em nível de caso (teste $t$ pareado ou teste de Wilcoxon, conforme a normalidade das diferenças), com ajuste de Holm dos valores-p das duas hipóteses ($\alpha = 0{,}05$) e cálculo do tamanho do efeito.
     \end{itemize}
 \end{enumerate}
+
+
+\todo[inline, color=pink]{Vocês vão testar duas hipóteses sobre as mesmas histórias de usuário, uma para o Acc@Hit e outra para o Acc@Cor. Isso aumenta a chance de um falso positivo, ou seja, de encontrar uma diferença entre ``com RAG'' e ``sem RAG'' que não existe: com dois testes a 5\%, essa chance chega a quase 10\%. Por isso, eu ajustei o texto da subseção ``Nível de Significância e Testes Estatísticos'' para explicar que o ajuste de Holm será aplicado. Confiram no restante do documento: 1) o item 7 do procedimento; 2) se a Validade de conclusão e a Instrumentação também citam o Holm. Isso precisa estar consistente em todo o documento.} 
+
+\todo[inline, color=pink]{o item 7 do procedimento de aplicação dos instrumentos foi alterado em funcao das correcoes que eu apliquei na subseção ``Nível de Significância e Testes Estatísticos''. Confiram se está consistente com o restante do documento e compreendam o que foi feito.}
+
+\todo[inline, color=pink]{Estudem os conceitos de erro tipo-I e tipo-II em experimentos estatísticos. Vocês precisam entender e explicar caso a banca pergunte}
 
 \subsection{Validade do experimento}
 \label{sec:validade}
@@ -289,10 +326,12 @@ A validade de construto examina se as métricas escolhidas representam adequadam
 
     \item \textbf{Mitigação}: Esta limitação é assumida e levada em conta na interpretação dos resultados, que são relativos à cobertura do gabarito, não à inexistência de critérios espúrios. A análise qualitativa complementar (Seção~\ref{sec:analise-complementar}) analisa os tipos de falha, incluindo alucinações.
 
-    \item \textbf{Ameaça}: Alguns do gabarito são criados pelos autores, visto que os critérios do MeasureSoftGram serão transformados para a sintaxe Gherkin, enquanto os cenários do CAPJu foram criados por outros, o que pode trazer vieses de redação ou omissões.
+    \item \textbf{Ameaça}: Parte do gabarito é transcrita pelos autores (alguns dos critérios do MeasureSoftGram, precisam ser convertidos para a sintaxe Gherkin), e parte foi escrita por outras pessoas (os cenários do CAPJu). A diferença de autoria e de estilo pode introduzir vieses de redação ou omissões.
 
     \item \textbf{Mitigação}: A transformação mantém o conteúdo original dos critérios, somente as adaptações estruturais necessárias são feitas, e a conformidade sintática é verificada com o \textit{Behave}.
 \end{itemize}
+
+\todo[inline, color=pink]{Como saber se o conteúdo original dos critérios foi preservado na conversão? Sugiro declarar a fidelidade da transcrição como ameaça à validade assumida.}
 
 \subsubsection*{Validade interna}
 
@@ -301,7 +340,7 @@ A validade interna é o grau de confiabilidade com que podemos dizer que os efei
 \begin{itemize}
     \item \textbf{Ameaça}: O não-determinismo intrínseco à geração por modelos de linguagem de grande porte, variações de contexto e possíveis mudanças na disponibilidade ou na versão dos serviços durante a coleta de dados.
 
-    \item \textbf{Mitigação}: Nós fixamos os hiperparâmetros de inferência com temperatura zerada ($\mathrm{temperatura} = 0$) e $top\_p = 0{,}1$ em todas as execuções do gerador e dos juízes, reduzindo assim a variabilidade das respostas, embora não garantindo saídas idênticas entre execuções. Usamos um desenho de comparação pareada, no qual cada história de usuário recebe ambos os tratamentos usando o mesmo modelo gerador e a mesma estrutura de \textit{prompt} (\textit{Urial}), e a ordem de aplicação é aleatorizada para que um dos tratamentos não seja executado sistematicamente antes do outro.
+    \item \textbf{Mitigação}: Fixar os hiperparâmetros de inferência com temperatura zerada ($\mathrm{temperatura} = 0$) e $top\_p = 0{,}1$ em todas as execuções do gerador e dos juízes, reduzindo assim a variabilidade das respostas, embora não garantindo saídas idênticas entre execuções. Usamos um desenho de comparação pareada, no qual cada história de usuário recebe ambos os tratamentos usando o mesmo modelo gerador e a mesma estrutura de \textit{prompt} (\textit{Urial}), e a ordem de aplicação é aleatorizada para que um dos tratamentos não seja executado sistematicamente antes do outro.
 \end{itemize}
 
 \subsubsection*{Validade externa}
@@ -309,9 +348,9 @@ A validade interna é o grau de confiabilidade com que podemos dizer que os efei
 A validade externa refere-se à possibilidade de generalizar os resultados para outros contextos, modelos e sistemas de software.
 
 \begin{itemize}
-    \item \textbf{Ameaça}: Nossa amostra é de conveniência e consiste em 50 histórias de usuário ($N = 50$), provenientes de apenas dois projetos acadêmicos de uma mesma disciplina, o que pode restringir a generalização dos resultados para projetos de grande porte, sistemas em produção ou com padrões de documentação distintos.
+    \item \textbf{Ameaça}: a amostra foi definida por conveniência e consiste em 50 histórias de usuário ($N = 50$), provenientes de apenas dois projetos acadêmicos de uma mesma disciplina, o que pode restringir a generalização dos resultados para projetos de grande porte, sistemas em produção ou com padrões de documentação distintos.
 
-    \item \textbf{Mitigação}: Os artefatos dos projetos selecionados estão consolidados, já que são projetos acadêmicos terminados, e sua origem e validação podem ser rastreadas. Ainda assim, a generalização dos resultados continua restrita a esse contexto. A replicação em outros domínios e projetos é facilitada pelo fato de disponibilizarmos publicamente o \textit{pipeline} de automação, os \textit{templates} de \textit{prompt} e os \textit{scripts} de avaliação em um repositório de artefatos.
+    \item \textbf{Mitigação}: Os artefatos dos projetos selecionados estão consolidados, já que são projetos acadêmicos terminados, e sua origem e validação podem ser rastreadas. Ainda assim, a generalização dos resultados continua restrita a esse contexto. Para facilitar a replicação em outros estudos e projetos, o \textit{pipeline} de automação, os \textit{templates} de \textit{prompt} e os \textit{scripts} de avaliação serão disponibilizados publicamente em um repositório de artefatos.
 \end{itemize}
 
 \subsubsection*{Validade de conclusão}
