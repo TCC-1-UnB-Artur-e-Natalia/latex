@@ -5,7 +5,7 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{11}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{11}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Contexto}{11}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problema}{12}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Questão de pesquisa}{13}{section.1.3}%
@@ -16,7 +16,7 @@
 \contentsline {section}{\numberline {1.6}Cronograma e fluxo de atividades}{15}{section.1.6}%
 \contentsline {subsection}{\numberline {1.6.1}Atividades da primeira etapa}{15}{subsection.1.6.1}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Referencial teórico}}{18}{chapter.2}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Referencial teórico}}{18}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Engenharia de Software Experimental}{18}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Paradigma GQM}{19}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Revisão estruturada da literatura}{19}{subsection.2.1.2}%
@@ -30,7 +30,7 @@
 \contentsline {subsection}{\numberline {2.5.3}Entrada multimodal}{26}{subsection.2.5.3}%
 \contentsline {section}{\numberline {2.6}Avaliação de critérios gerados}{27}{section.2.6}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Revisão Estruturada da Literatura}}{29}{chapter.3}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Revisão Estruturada da Literatura}}{29}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Protocolo}{29}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Questões de pesquisa}{29}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}\textit {String} de busca}{30}{subsection.3.1.2}%
@@ -48,7 +48,7 @@
 \contentsline {subsection}{\numberline {3.3.8}QP8 -- Quais métricas de avaliação são mais comumente usadas para avaliar os critérios de aceitação gerados?}{44}{subsection.3.3.8}%
 \contentsline {subsection}{\numberline {3.3.9}QP9 -- Quais limitações e desafios são mais relatados nos estudos sobre geração de critérios de aceitação com LLMs?}{45}{subsection.3.3.9}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Planejamento do Experimento}}{47}{chapter.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Planejamento do Experimento}}{47}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Definição do escopo do experimento}{47}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Objetivo}{47}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Questão de pesquisa}{47}{subsection.4.1.2}%
@@ -65,11 +65,11 @@
 \contentsline {subsection}{\numberline {4.2.9}Validade do experimento}{58}{subsection.4.2.9}%
 \contentsline {subsection}{\numberline {4.2.10}Análise complementar}{60}{subsection.4.2.10}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Conclusão}}{62}{chapter.5}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclusão}}{62}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Atividades concluídas}{62}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Resultados obtidos}{62}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Próximos passos}{63}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Cronograma da segunda etapa}{63}{section.5.4}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{65}{section*.25}%
+\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{65}{section*.25}%
