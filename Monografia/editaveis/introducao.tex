@@ -30,7 +30,7 @@ Assim, ainda não se sabe com que nível de acurácia os LLMs geram CA em \texti
 \section{Questão de pesquisa}
 \label{sec:questao-pesquisa}
 
-A formulação da questão de pesquisa deste trabalho baseou-se na metodologia \textit{Goal Question Metric} (GQM) \cite{basili1994}. Como ilustrado na Figura~\ref{fig:gqm}, o GQM propõe uma organização hierárquica e \textit{top-down}, desdobrando objetivos gerais em perguntas específicas e métricas quantitativas. A adaptação dessa estrutura ao escopo desta pesquisa resultou no objetivo apresentado na Tabela~\ref{tab:gqm}.
+A formulação da questão de pesquisa deste trabalho baseou-se no uso  da metodologia \textit{Goal Question Metric} (GQM), adaptada \cite{basili1994}. Como ilustrado na Figura~\ref{fig:gqm}, o GQM propõe uma organização hierárquica e \textit{top-down}, desdobrando objetivos gerais em perguntas específicas e métricas quantitativas. A adaptação dessa estrutura ao escopo desta pesquisa resultou no objetivo apresentado na Tabela~\ref{tab:gqm}.
 
 \begin{figure}[H]
   \centering
@@ -40,6 +40,9 @@ A formulação da questão de pesquisa deste trabalho baseou-se na metodologia \
   \fonte{Adaptado de \citeonline{basili1994}}
 \end{figure}
 
+\todo[inline, color=pink]{Refletindo agora na correção, ajustei o gqm e a questão principal de pesquisa. Observem com atenção e reflitam.}
+
+
 \begin{table}[H]
   \centering
   \caption{GQM adaptado}
@@ -48,19 +51,21 @@ A formulação da questão de pesquisa deste trabalho baseou-se na metodologia \
   \begin{tabular}{|p{0.28\textwidth}|p{0.62\textwidth}|}
     \hline
     \textbf{Característica} & \textbf{Valor} \\ \hline
-    Analisar & documentação de histórias de usuário \\ \hline
-    Com o propósito de & caracterizar a geração automática dos critérios de aceitação escritos em formato \textit{Gherkin} \\ \hline
+    Analisar & a geração automática de critérios de aceitação em formato \textit{Gherkin} a partir da documentação de histórias de usuário \\ \hline
+    Com o propósito de & caracterizar o apoio que os LLMs podem oferecer a essa geração e avaliar sua acurácia \\ \hline
     Com respeito à & acurácia dos critérios de aceitação gerados com apoio de LLMs \\ \hline
     Do ponto de vista de & pesquisadores \\ \hline
-    No contexto de & aplicações web desenvolvidas com métodos ágeis disponíveis em repositórios de código fonte aberto \\ \hline
+    No contexto de & aplicações web desenvolvidas com métodos ágeis disponíveis em repositórios de código-fonte aberto \\ \hline
   \end{tabular}
   \fonte{Adaptado de \citeonline{basili1994}}
 \end{table}
 
+O objetivo combina dois propósitos, cada um tratado em uma etapa do trabalho. O de caracterizar é atendido pela revisão estruturada da literatura (Capítulo~\ref{cap:revisao}), que levanta os modelos, as técnicas, os artefatos de entrada, as métricas e as limitações dos estudos existentes. O de avaliar é atendido pelo quase-experimento, planejado no Capítulo~\ref{cap:planejamento} e a ser executado na segunda etapa, que mede a acurácia dos critérios gerados.
+
 Com base nesse objetivo, foi definida a seguinte questão principal de pesquisa:
 
 \begin{center}
-\textbf{\textit{Como os modelos de linguagem de grande porte têm apoiado a geração automática de critérios de aceitação em formato Gherkin a partir da documentação de histórias de usuário, e com que nível de acurácia?}}
+\textbf{\textit{Como os LLMs podem apoiar a geração automática de critérios de aceitação em formato Gherkin a partir da documentação de histórias de usuário?}}
 \end{center}
 
 \section{Objetivos}
@@ -68,7 +73,10 @@ Com base nesse objetivo, foi definida a seguinte questão principal de pesquisa:
 
 \subsection{Objetivo geral}
 
-O objetivo geral deste trabalho é avaliar a acurácia de cenários em \textit{Gherkin} gerados por LLMs a partir da documentação de histórias de usuário de aplicações \textit{web} desenvolvidas com métodos ágeis, comparando a geração com e sem a recuperação de contexto do próprio projeto por geração aumentada por recuperação (\textit{Retrieval-Augmented Generation}, RAG).
+O objetivo geral deste trabalho é caracterizar o apoio que os LLMs podem oferecer à geração automática de critérios de aceitação em formato \textit{Gherkin} a partir da documentação de histórias de usuário e avaliar a acurácia dessa geração em aplicações \textit{web} desenvolvidas com métodos ágeis, comparando a geração com e sem a recuperação de contexto do próprio projeto por geração aumentada por recuperação (\textit{Retrieval-Augmented Generation}, RAG).
+
+
+\todo[inline, color=pink]{Refletir essas correções no Resumo e abstract. }
 
 \subsection{Objetivos específicos}
 
@@ -81,6 +89,8 @@ Para alcançar o objetivo geral, foram definidos os seguintes objetivos específ
   \item executar a geração dos cenários com e sem RAG, e medir sua acurácia em relação ao gabarito, isto é, a proporção dos objetivos de teste do gabarito cobertos pelos cenários gerados, como em \citeonline{wang2025};
   \item analisar os resultados, verificar as hipóteses formuladas no planejamento e apresentar a conclusão resultante.
 \end{itemize}
+
+\todo[inline, color=pink]{Aqui deve ser inserida a subção da metodologia. Trata-se da instância daquela imagem do cap. 2 do livro do Wohlin (2a ed.). Vocês precisam "instanciar" a imagem com as decisões adotadas neste trabalho.}
 
 \section{Estrutura do trabalho}
 \label{sec:estrutura}
@@ -100,6 +110,9 @@ Além desta introdução, o trabalho está organizado da seguinte forma:
 \subsection{Atividades da primeira etapa}
 
 Esta subseção detalha as atividades realizadas na primeira etapa do trabalho. A Figura~\ref{fig:fluxo} apresenta o fluxo dessas atividades, e a Figura~\ref{fig:cronograma}, o cronograma correspondente.
+
+
+\todo[inline, color=pink]{Retirar a imagem 2. O fluxo de atividades não ocorreu de forma sequencial e o cronograma reflete a execução das atividades de forma mais fidedigna.}
 
 \begin{figure}[H]
   \centering

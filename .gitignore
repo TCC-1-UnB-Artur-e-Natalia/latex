@@ -16,4 +16,12 @@
 *.toc
 *.dvi
 *.ps
-Monografia/tcc.pdf
+
+# PDFs gerados
+*.pdf
+
+# macOS
+.DS_Store
+Monografia/tcc.aux
+Monografia/tcc.blg
+Monografia/tcc.log
