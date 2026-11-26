@@ -17,7 +17,7 @@ Sendo assim, o objetivo deste trabalho é testar de forma empírica se existe di
 \label{sec:quest-de-pesq}
 Para obter uma resposta à questão de pesquisa principal, que foi apresentada na Seção~\ref{sec:questao-pesquisa} (\textit{Como os LLMs podem apoiar a geração automática de critérios de aceitação em formato Gherkin a partir da documentação de histórias de usuário?}), foi utilizada a abordagem GQM \cite{basili1994}, que, a partir do objetivo do trabalho (Tabela~\ref{tab:gqm}), permitiu desdobrar a questão principal em questões de pesquisa mais específicas e, para cada uma delas, definir métricas que podem ajudar na avaliação.
 
-Portanto, a questão principal tem duas frentes. A revisão estruturada da literatura (Capítulo~\ref{cap:revisao}) caracteriza como os LLMs têm sido usados para apoiar a geração de critérios de aceitação. O quase-experimento, por sua vez, avalia uma forma específica de apoio, o fornecimento ao modelo do contexto do próprio projeto por meio de RAG, medindo a acurácia dos critérios gerados com e sem esse contexto. A questão específica a seguir é, portanto, uma derivação da questão principal: 
+Portanto, a questão principal tem duas frentes. A revisão estruturada da literatura (Capítulo~\ref{cap:revisao}) caracteriza como os LLMs têm sido usados para apoiar a geração de critérios de aceitação. O quase-experimento (Seção~\ref{sec:ref-experimento}), por sua vez, avalia uma forma específica de apoio, o fornecimento ao modelo do contexto do próprio projeto por meio de RAG, medindo a acurácia dos critérios gerados com e sem esse contexto. A questão específica a seguir é uma derivação da questão principal:
 
 \begin{itemize}
     \item \textbf{Questão Específica}: 
@@ -137,7 +137,7 @@ Estas variáveis são:
 
 \subsection{Formulação das hipóteses}
 
-As hipóteses para a Questão Específica da seção~\ref{sec:questao-pesquisa} serão modeladas como uma diferença pareada entre os tratamentos, de forma a quantificar, estatisticamente, o impacto do uso de RAG na geração de critérios de aceitação em formato Gherkin. Para cada história de usuário $j$, temos:
+As hipóteses para a Questão Específica da seçã~\ref{sec:quest-de-pesq}serão modeladas como uma diferença pareada entre os tratamentos, de forma a quantificar, estatisticamente, o impacto do uso de RAG na geração de critérios de aceitação em formato Gherkin. Para cada história de usuário $j$, temos:
 \[
 d_j^{\mathrm{Hit}} = \mathrm{Acc@Hit}_{j,\mathrm{Com\ RAG}} - \mathrm{Acc@Hit}_{j,\mathrm{Sem\ RAG}}
 \quad \mathrm{e} \quad
@@ -188,7 +188,8 @@ O nível de significância é escolhido em $\alpha = 0{,}05$ (nível de confian�
 
 
 \subsection{Desenho do experimento}
-Com base na tipologia de \citeonline{wohlin2000}, o experimento descrito aqui se enquadra na categoria de \textbf{experimento orientado à tecnologia} (\textit{technology-oriented experiment}). Nesse tipo de pesquisa não há a participação de seres humanos, e o intuito é comparar experimentalmente técnicas, ferramentas ou algoritmos aplicados a artefatos de \textit{software}. Nesta pesquisa, a geração de critérios de aceitação em formato Gherkin a partir de histórias de usuário.
+
+Com base na tipologia de \citeonline{wohlin2000}, o experimento descrito aqui se enquadra na categoria de \textbf{experimento orientado à tecnologia} (\textit{technology-oriented experiment}). Nesse tipo de pesquisa não há a participação de seres humanos, e o intuito é comparar experimentalmente técnicas, ferramentas ou algoritmos aplicados a artefatos de \textit{software}. No caso deste trabalho, a técnica comparada é a geração de critérios de aceitação em formato Gherkin, com e sem RAG, a partir de histórias de usuário.
 
 O desenho experimental escolhido é o \textbf{\textit{paired comparison design}} (desenho de comparação pareada) \cite{wohlin2000}. Essa abordagem é indicada para experimentos com um fator e dois tratamentos. Cada unidade experimental (\textit{User Story}) recebe os dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}), e a comparação é feita sobre a diferença entre as medidas pareadas. A ordem de aplicação dos tratamentos é escolhida aleatoriamente para cada história. Como as chamadas aos modelos são independentes e não há seres humanos que possam aprender com a primeira execução, a aleatorização não serve para controlar efeitos de aprendizado. Serve para evitar que um dos tratamentos seja executado sistematicamente antes do outro, por exemplo, caso haja mudanças de disponibilidade ou de versão dos serviços dos modelos durante a coleta.
 
@@ -246,10 +247,17 @@ A experimentação possui como instrumentos de trabalho uma série de recursos e
 
     \item \textbf{Scripts de Automação e Recuperação}: Scripts para extrair e vetorizar artefatos da base de conhecimento, realizar a busca por similaridade e fazer as chamadas à LLM geradora de maneira pareada para cada história de usuário, respeitando a ordem aleatória do desenho de comparação pareada;
 
-        \item \textbf{Scripts de Avaliação e Análise Estatística}: Scripts em Python para rodar o algoritmo de julgamento \textit{LLM-as-a-Judge}, enviando para o painel de juízes cada objetivo atômico $T_i$ e a resposta gerada, coletando o parecer individual de cada juiz (\textit{Full}, \textit{Partial} ou \textit{Not Covered}), computando as métricas de \textit{Acc@Hit}, \textit{Acc@Cor} e similaridade semântica, e conduzindo o teste de normalidade e os testes de hipóteses, com ajuste de Holm dos valores-p das duas hipóteses (Shapiro-Wilk, teste $t$ pareado e Wilcoxon);
+    \item \textbf{Scripts de Avaliação e Análise Estatística}: Scripts em Python para rodar o algoritmo de julgamento \textit{LLM-as-a-Judge}, enviando para o painel de juízes cada objetivo atômico $T_i$ e a resposta gerada, coletando o parecer individual de cada juiz (\textit{Full}, \textit{Partial} ou \textit{Not Covered}), computando as métricas de \textit{Acc@Hit}, \textit{Acc@Cor} e similaridade semântica, e conduzindo o teste de normalidade e os testes de hipóteses (Shapiro-Wilk, teste $t$ pareado e Wilcoxon), com ajuste de Holm dos valores-p das duas hipóteses;
+    
 
     \item \textbf{Behave}: Framework Python para BDD utilizado para verificar a sintaxe correta dos arquivos Gherkin, tanto os critérios do MeasureSoftGram convertidos para esta sintaxe quanto os cenários gerados pelos modelos nos dois tratamentos. Os resultados dessa verificação são armazenados de forma independente da avaliação de acurácia, realizada com base no conteúdo dos critérios.
 \end{itemize}
+
+\todo[inline, color=pink]{O painel (ChatGPT, DeepSeek e Gemini) está seguido da citação de Wang et al. (2025), o que sugere que os autores usaram esses mesmos modelos, mas eles usaram GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash. Citem Wang et al. apenas para o método (juízes em painel e regra de decisão), declarem que o painel deste estudo é diferente e justifiquem a escolha (acesso, custo e diversidade de fornecedores). Indiquem também o modelo e a versão exatos de cada juiz, porque ``ChatGPT'' é o nome de um produto, não de um modelo. Não me recordo de termos decidido retirar o claude. Por que ele foi retirado?}
+
+\todo[inline, color=pink]{Se a base de conhecimento do RAG contiver os próprios critérios de aceitação (por exemplo, nos repositórios do MeasureSoftGram e do CAPJu), o tratamento Com RAG pode apenas copiar o gabarito, e a comparação deixa de medir o apoio do contexto. Digam exatamente o que entra na base, retirem dela os critérios de aceitação usados como gabarito e declarem esse cuidado na Validade interna. Se não for possível retirá-los, declarem como ameaça.}
+
+\todo[inline, color=pink]{Explicar ``Validação pelos usuários é conhecida'': mostrem a evidência (quem validou, quando e em qual documento).}
 
 \subsection{Procedimento de aplicação dos instrumentos}
 
@@ -335,13 +343,17 @@ A validade de construto examina se as métricas escolhidas representam adequadam
     \item \textbf{Ameaça}: Parte do gabarito é transcrita pelos autores (alguns dos critérios do MeasureSoftGram, precisam ser convertidos para a sintaxe Gherkin), e parte foi escrita por outras pessoas (os cenários do CAPJu). A diferença de autoria e de estilo pode introduzir vieses de redação ou omissões.
 
     \item \textbf{Mitigação}: A transformação mantém o conteúdo original dos critérios, somente as adaptações estruturais necessárias são feitas, e a conformidade sintática é verificada com o \textit{Behave}.
+    
+    \item \textbf{Ameaça}: Conflito de interesse. O orientador deste trabalho é autor do MeasureSoftGram, um dos dois projetos da amostra, que é desenvolvido na disciplina que ele ministra. Essa proximidade pode ter influenciado a escolha do projeto e, em tese, a redação ou a seleção dos critérios de aceitação usados como gabarito.
+
+    \item \textbf{Mitigação}: O conflito é declarado aqui, para que o leitor possa considerá-lo na interpretação dos resultados. Os dois tratamentos são comparados com o mesmo gabarito, de modo que um eventual viés na redação dos critérios afeta igualmente as gerações Com RAG e Sem RAG e compromete mais o nível absoluto de acurácia do que a diferença pareada. A geração e o julgamento são automatizados, com as mesmas regras nos dois projetos, e os \textit{scripts}, os \textit{templates} de \textit{prompt} e os dados serão disponibilizados publicamente para permitir a auditoria. 
 \end{itemize}
 
 \todo[inline, color=pink]{Como saber se o conteúdo original dos critérios foi preservado na conversão? Sugiro declarar a fidelidade da transcrição como ameaça à validade assumida.}
 
 \subsubsection*{Validade interna}
 
-A validade interna é o grau de confiabilidade no qual se pode dizer que os efeitos observados nas variáveis dependentes são devidos unicamente à manipulação da variável independente (\textbf{Uso de RAG}) e não a outros fatores confundentes.
+A validade interna é o grau de confiabilidade com que se pode dizer que os efeitos observados nas variáveis dependentes são devidos unicamente à manipulação da variável independente (\textbf{Uso de RAG}) e não a outros fatores confundentes.
 
 \begin{itemize}
     \item \textbf{Ameaça}: O não-determinismo intrínseco à geração por modelos de linguagem de grande porte, variações de contexto e possíveis mudanças na disponibilidade ou na versão dos serviços durante a coleta de dados.
