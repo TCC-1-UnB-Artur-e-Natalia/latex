@@ -93,7 +93,9 @@ O \textit{pipeline} será de implementação própria, baseado na arquitetura RA
 
 A parte da recuperação apresentará dois módulos: a recuperação textual (T-RAG), que irá fornecer os cinco trechos mais relevantes da documentação por ICRALM, e a recuperação visual (V-RAG), que irá extrair as capturas de tela da interface ligadas por DSE \cite{wang2025}. No tratamento com RAG, o campo de contexto do template será preenchido com as informações e com as imagens recuperadas. No tratamento sem RAG, este campo ficará vazio, enquanto os outros elementos do template não serão alterados.
 
-Os dois tratamentos irão utilizar o mesmo modelo de linguagem para a geração (Gemini) \cite{wang2025}, o mesmo template de prompt e os mesmos parâmetros de geração com temperatura zero. Dessa forma, a única diferença entre os tratamentos será o conteúdo do campo de contexto.
+Os dois tratamentos irão utilizar o mesmo modelo de linguagem para a geração (Gemini, versão [preencher: versão]),\todo[color=yellow, size=\tiny]{preencher} o mesmo modelo de prompt e os mesmos parâmetros de geração, com temperatura zero. Dessa forma, a única diferença entre os tratamentos será o conteúdo do campo de contexto.
+
+\todo[color=yellow, size=\tiny]{preencher}
 
 O tratamento sem RAG será idêntico ao cenário w/o RAG de \citeonline{wang2025}, onde o template é mantido, mas o contexto de fundo é removido.
 
@@ -122,9 +124,12 @@ A similaridade semântica entre os critérios gerados e os critérios do gabarit
 \subsubsection*{Variáveis controladas}
 As variáveis controladas são os fatores que se manterão constantes entre os dois tratamentos (\textbf{Sem RAG} e \textbf{Com RAG}) para que o efeito da incorporação das informações de domínio seja isolado e não haja vieses no experimento.
 Estas variáveis são:
+
+
+
 \begin{itemize}
     \item \textbf{Modelo de LLM gerador e versão}: o mesmo modelo de linguagem gerador (por exemplo, Gemini) é empregado para as duas configurações de uma história de usuário.
-    \item \textbf{Parâmetros de geração}: os hiperparâmetros de inferência são fixados em ambos os tratamentos. Mais precisamente, a temperatura é igual a zero ($temperatura = 0$) e $top\_p = 0.1$. Com isso, a aleatoriedade e variabilidade das respostas são reduzidas, aumentando a reprodutibilidade dos resultados (mesmo não garantindo que as saídas serão as mesmas entre as execuções).
+    \item \textbf{Parâmetros de geração}: os hiperparâmetros de inferência são fixados em ambos os tratamentos. Mais precisamente, a temperatura é igual a zero ($temperatura = 0$). Com isso, a aleatoriedade e variabilidade das respostas são reduzidas, aumentando a reprodutibilidade dos resultados (mesmo não garantindo que as saídas serão as mesmas entre as execuções).
     \item \textbf{Estrutura do template de prompt}: a mesma estrutura de prompt padronizada (adaptada da técnica \textit{Urial}) é utilizada. O papel da IA, as instruções do formato Gherkin e o espaço para a história de usuário são idênticos.
     \item \textbf{Corpus da base de conhecimento}: a mesma base de documentos textuais e visuais do projeto é usada para indexação e busca.
     \item \textbf{Quantidade de trechos recuperados}: cinco trechos da documentação e telas são retornados pelo módulo de recuperação no tratamento Com RAG.
@@ -137,7 +142,7 @@ Estas variáveis são:
 
 \subsection{Formulação das hipóteses}
 
-As hipóteses para a Questão Específica da seçã~\ref{sec:quest-de-pesq}serão modeladas como uma diferença pareada entre os tratamentos, de forma a quantificar, estatisticamente, o impacto do uso de RAG na geração de critérios de aceitação em formato Gherkin. Para cada história de usuário $j$, temos:
+As hipóteses para a Questão Específica da subseção~\ref{sec:quest-de-pesq} serão modeladas como uma diferença pareada entre os tratamentos, de forma a quantificar, estatisticamente, o impacto do uso de RAG na geração de critérios de aceitação em formato Gherkin. Para cada história de usuário $j$, temos:
 \[
 d_j^{\mathrm{Hit}} = \mathrm{Acc@Hit}_{j,\mathrm{Com\ RAG}} - \mathrm{Acc@Hit}_{j,\mathrm{Sem\ RAG}}
 \quad \mathrm{e} \quad
@@ -240,12 +245,12 @@ A experimentação possui como instrumentos de trabalho uma série de recursos e
 
 \begin{itemize}
     \item \textbf{Gabarito de Referência e Base de Conhecimento}: É composto por um conjunto de histórias de usuário (\textit{User Stories}) reais do projeto, com seus respectivos critérios de aceitação em formato Gherkin (\textit{ground truth}), que no caso do MeasureSoftGram são transcritos dos critérios originais descritos em \textit{Given-When-Then}. Para a avaliação, os cenários em Gherkin do gabarito serão divididos em uma lista de objetivos de teste atômicos ($T_i$), mantendo a semântica condicional (\textit{Given-When-Then}). A base de conhecimento é composta por documentos textuais e capturas de tela da interface do usuário (\textit{UI}) indexados para recuperação de domínio;
-
-    \item \textbf{Ferramentas de Software e Modelos}: Uma infraestrutura construída na linguagem Python (versão 3.12) para gerenciar o pipeline. Para a geração, usa-se a API da LLM geradora (Gemini). Para a avaliação (\textit{LLM-as-a-Judge}), usa-se as APIs dos três modelos que compõem o comitê de juízes (ChatGPT, DeepSeek e Gemini) \cite{wang2025};
+    
+    \item \textbf{Ferramentas de Software e Modelos}: Uma infraestrutura construída na linguagem Python (versão 3.12) para gerenciar o pipeline. Para a geração, usa-se a API da LLM geradora (Gemini, versão [preencher: versão],\todo[color=yellow, size=\tiny]{preencher} com dados coletados em [preencher: mês/ano]), \todo[color=yellow, size=\tiny]{preencher} que aceita texto e imagem. Para a avaliação (\textit{LLM-as-a-Judge}), usa-se as APIs dos três modelos que compõem o comitê de juízes (ChatGPT, DeepSeek e Gemini) \cite{wang2025};
 
     \item \textbf{Templates de Prompt}: O template de prompt é padronizado e fixo, baseado na estrutura \textit{Urial} \cite{wang2025}. Ele define o papel da IA, as regras de sintaxe Gherkin e tem lacunas para incluir a história de usuário (\texttt{\{INPUT\_USER\_STORY\}}) e o contexto recuperado (\texttt{\{INPUT\_BACKGROUND\}}). No tratamento Sem RAG, o espaço para contexto fica em branco, enquanto no tratamento Com RAG ele é preenchido com os cinco trechos recuperados;
 
-    \item \textbf{Scripts de Automação e Recuperação}: Scripts para extrair e vetorizar artefatos da base de conhecimento, realizar a busca por similaridade e fazer as chamadas à LLM geradora de maneira pareada para cada história de usuário, respeitando a ordem aleatória do desenho de comparação pareada;
+    \item \textbf{Scripts de Automação e Recuperação}: Scripts para extrair e vetorizar artefatos da base de conhecimento (com o modelo de \textit{embeddings} [preencher: modelo]),\todo[color=yellow, size=\tiny]{preencher} realizar a busca por similaridade e fazer as chamadas à LLM geradora de maneira pareada para cada história de usuário, respeitando a ordem aleatória do desenho de comparação pareada;
 
     \item \textbf{Scripts de Avaliação e Análise Estatística}: Scripts em Python para rodar o algoritmo de julgamento \textit{LLM-as-a-Judge}, enviando para o painel de juízes cada objetivo atômico $T_i$ e a resposta gerada, coletando o parecer individual de cada juiz (\textit{Full}, \textit{Partial} ou \textit{Not Covered}), computando as métricas de \textit{Acc@Hit}, \textit{Acc@Cor} e similaridade semântica, e conduzindo o teste de normalidade e os testes de hipóteses (Shapiro-Wilk, teste $t$ pareado e Wilcoxon), com ajuste de Holm dos valores-p das duas hipóteses;
     
@@ -256,6 +261,11 @@ A experimentação possui como instrumentos de trabalho uma série de recursos e
 \todo[inline, color=pink]{O painel (ChatGPT, DeepSeek e Gemini) está seguido da citação de Wang et al. (2025), o que sugere que os autores usaram esses mesmos modelos, mas eles usaram GPT-4o, Claude 3.5 Sonnet e Gemini 2 Flash. Citem Wang et al. apenas para o método (juízes em painel e regra de decisão), declarem que o painel deste estudo é diferente e justifiquem a escolha (acesso, custo e diversidade de fornecedores). Indiquem também o modelo e a versão exatos de cada juiz, porque ``ChatGPT'' é o nome de um produto, não de um modelo. Não me recordo de termos decidido retirar o claude. Por que ele foi retirado?}
 
 \todo[inline, color=pink]{Se a base de conhecimento do RAG contiver os próprios critérios de aceitação (por exemplo, nos repositórios do MeasureSoftGram e do CAPJu), o tratamento Com RAG pode apenas copiar o gabarito, e a comparação deixa de medir o apoio do contexto. Digam exatamente o que entra na base, retirem dela os critérios de aceitação usados como gabarito e declarem esse cuidado na Validade interna. Se não for possível retirá-los, declarem como ameaça.}
+
+
+
+\todo[inline, color=pink]{O gerador aparece só como ``Gemini'' (linhas 96, 244 e 288), e a linha 96 cita Wang et al. (2025) logo depois, como se eles tivessem usado o mesmo modelo. Informem o modelo e a versão exatos (que precisa aceitar texto e imagem), o modelo de \textit{embeddings} da recuperação. Deixem também os hiperparâmetros iguais em todo o texto}
+
 
 \todo[inline, color=pink]{Explicar ``Validação pelos usuários é conhecida'': mostrem a evidência (quem validou, quando e em qual documento).}
 
@@ -285,7 +295,7 @@ O método de utilização dos instrumentos é o plano de execução passo a pass
 
     \item \textbf{Execução dos Tratamentos e Geração dos Gherkins}:
     \begin{itemize}
-        \item \textit{Tratamento Com RAG}: Para a história de usuário em execução, o módulo de recuperação extrai os cinco fragmentos textuais e visuais mais significativos da base de conhecimento. O contexto obtido é colocado no \textit{template} de \textit{prompt} (com base no modelo \textit{Urial}), e a solicitação é feita à LLM geradora (\textit{e.g.}, Gemini) com a temperatura em 0;
+        \item \textit{Tratamento Com RAG}: Para a história de usuário em execução, o módulo de recuperação extrai os cinco fragmentos textuais e visuais mais significativos da base de conhecimento. O contexto obtido é colocado no \textit{template} de \textit{prompt} (com base no modelo \textit{Urial}), e a solicitação é feita à LLM geradora com a mesma temperatura dos dois tratamentos (temperatura 0);
         \item \textit{Tratamento Sem RAG}: O mesmo \textit{template} de \textit{prompt} e história de usuário são enviados à mesma LLM geradora com os mesmos hiperparâmetros, mas o campo de contexto está em branco;
         \item Gravação das respostas com os cenários em Gherkin criados para ambos os tratamentos em arquivos JSON marcados pelo ID da história e tratamento.
     \end{itemize}
@@ -358,7 +368,7 @@ A validade interna é o grau de confiabilidade com que se pode dizer que os efei
 \begin{itemize}
     \item \textbf{Ameaça}: O não-determinismo intrínseco à geração por modelos de linguagem de grande porte, variações de contexto e possíveis mudanças na disponibilidade ou na versão dos serviços durante a coleta de dados.
 
-    \item \textbf{Mitigação}: Fixam-se os parâmetros de inferência do gerador e dos juízes (temperatura $= 0$ e $top\_p = 0{,}1$), reduzindo a variabilidade sem garantir saídas idênticas. Adota-se uma comparação pareada: cada história recebe os dois tratamentos com o mesmo gerador e a mesma estrutura de \textit{prompt} (\textit{Urial}). A ordem dos tratamentos é aleatorizada para evitar que um deles seja sempre executado primeiro.
+    \item \textbf{Mitigação}: Fixam-se os parâmetros de inferência: temperatura $= 0$ no gerador e temperatura $= 0$ e $top\_p = 0{,}1$ nos juízes, reduzindo a variabilidade sem garantir saídas idênticas. Adota-se uma comparação pareada: cada história recebe os dois tratamentos com o mesmo gerador e a mesma estrutura de \textit{prompt} (\textit{Urial}). A ordem dos tratamentos é aleatorizada para evitar que um deles seja sempre executado primeiro.
 \end{itemize}
 
 \subsubsection*{Validade externa}
